@@ -22241,6 +22241,14 @@ video {
           animation: bounce 1s infinite;
 }
 
+.bg-accent {
+  background: rgba(33, 33, 33, .95);
+}
+
+.bg-primary-500 {
+  background: rgba(21, 145, 149, .59);
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
