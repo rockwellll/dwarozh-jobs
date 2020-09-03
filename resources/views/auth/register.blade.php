@@ -39,6 +39,8 @@
                             </div>
                         </div>
 
+                        <input type="hidden" name="buissness_account" value="1">
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
