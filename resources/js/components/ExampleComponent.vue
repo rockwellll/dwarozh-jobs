@@ -7,6 +7,7 @@
 
                     <div class="card-body">
                         I'm an example component.
+                        {{ __("auth.login_to_account") }}
                     </div>
                 </div>
             </div>

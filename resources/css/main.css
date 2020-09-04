@@ -12,3 +12,7 @@
 .bg-primary-500 {
     background: rgba(21, 145, 149, .59);
 }
+
+.text-primary {
+    color: #159195;
+}

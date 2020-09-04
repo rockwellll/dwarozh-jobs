@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="flex justify-center">
+    <div class="flex flex-col items-center text-primary">
+        <h1 class="text-5xl">Create an account</h1>
+        <h2>To start applying to jobs easily</h2>
+    </div>
+
+
+</div>
+<example-component></example-component>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
