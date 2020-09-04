@@ -16,10 +16,10 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
-    'login_to_account' => "Login To Your Account",
-    'email' => "email",
-    'password' => "password",
-    'login' => 'Log in',
-    'dont_have_account' => 'Dont have an account?',
-    'signup' => 'Sign up'
+    'login_to_account' => "چوونه‌ژووره‌وه‌ بۆ ناو هه‌ژماره‌که‌ت",
+    'email' => "ئیمه‌ێڵ",
+    'password' => "وشه‌ی نهێنی",
+    'login' => 'چوونه‌ژووره‌وه‌',
+    'dont_have_account' => 'هه‌ژمارت نیه‌؟',
+    'signup' => 'هه‌ژمارێک دروست بکه‌'
 ];

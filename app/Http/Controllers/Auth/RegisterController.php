@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\DefaultUser;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -65,20 +66,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'location' => $data['location'] ?? "",
+        ]);
+
         if (request()->has('buissness_account')) {
             $account = BusinessUser::create();
-
-            $user = User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'location' => $data['location'] ?? "",
-            ]);
             $account->user()->save($user);
             return $user;
         }
 
+        $account = DefaultUser::create();
+        $account->user()->save($user);
 
-        ddd("what about default user?");
+        return $user;
     }
 }
