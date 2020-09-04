@@ -9,10 +9,46 @@
     background: rgba(33, 33, 33, .95);
 }
 
+.bg-primary {
+    background-color: #159195;
+}
+
 .bg-primary-500 {
     background: rgba(21, 145, 149, .59);
 }
 
 .text-primary {
+    color: rgba(21, 145, 149, .85);
+}
+
+.text-accent {
+    color: #212121;
+}
+
+.bg-body {
+    background: #F8F8F8;
+}
+
+.border-primary {
+    border-color: #159195;
+}
+
+input:focus {
+    border-color: #159195;
+    background-color: white;
+}
+
+input, select {
+    @apply p-2 w-full outline-none border-2 rounded rounded-md;
+}
+
+.link {
+    text-decoration: underline;
+    text-decoration-color: #159195;
     color: #159195;
+}
+
+.link:hover {
+    color: #137578;
+    text-decoration-color:#137578;
 }

@@ -21,5 +21,16 @@ return [
     'password' => "وشه‌ی نهێنی",
     'login' => 'چوونه‌ژووره‌وه‌',
     'dont_have_account' => 'هه‌ژمارت نیه‌؟',
-    'signup' => 'هه‌ژمارێک دروست بکه‌'
+    'signup' => 'هه‌ژمارێک دروست بکه‌',
+    'first_name' => 'ناوی خۆت',
+    'last_name' => 'ناوی باوک',
+    'location' => 'شوێنی نیشته‌جێبوون',
+    'confirm_password' => 'دووباره‌ وشه‌ی نهێنی بنووسه‌',
+    'password_dont_match' => 'وشه‌ نهێنیه‌کان ده‌بێت وه‌ک یه‌ک بن',
+    'create_account' => 'هه‌ژماره‌که‌م دروست بکه‌',
+    'already_have_an_account' => 'ئایا تۆ هه‌ژمارت هه‌یه‌؟',
+    'ready_to_find_your_future' => 'ئایا تۆ ئاماده‌ی دواڕۆژت بگۆڕی؟',
+    'create_an_account' => 'هه‌ژمارێک دروست بکه',
+    'to_apply_easier' => 'بۆ ئه‌وه‌ی ئاسانتر تقدیمی کار بکه‌یت',
+    'resume' => 'سی-ڤی'
 ];
