@@ -17,12 +17,24 @@
     background: rgba(21, 145, 149, .59);
 }
 
+.bg-primary-900 {
+    background: rgba(21, 145, 149, .9);
+}
+
 .text-primary {
     color: rgba(21, 145, 149, .85);
 }
 
+.text-primary-700 {
+    color: rgba(21, 145, 149, .7);
+}
+
 .text-accent {
     color: #212121;
+}
+
+.text-accent-800 {
+    color: rgba(33, 33, 33, .85);
 }
 
 .bg-body {
@@ -36,10 +48,11 @@
 input:focus {
     border-color: #159195;
     background-color: white;
+
 }
 
 input, select {
-    @apply p-2 w-full outline-none border-2 rounded rounded-md;
+    @apply p-2 w-full outline-none border-gray-400 border-2 rounded-lg text-accent-800 mt-1;
 }
 
 .link {
@@ -51,4 +64,37 @@ input, select {
 .link:hover {
     color: #137578;
     text-decoration-color:#137578;
+}
+
+label.file-label:hover {
+    color: #137578;
+}
+
+button.primary-button {
+    @apply bg-primary text-white rounded-md mt-2
+}
+
+button.primary-button:hover {
+    @apply bg-primary-900
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+@media only screen and (max-width: 600px) {
+    .centered {
+        position: unset;
+        top: unset;
+        left: unset;
+        -ms-transform: unset;
+        -webkit-transform: unset;
+        transform: unset;
+        width: 100%;
+    }
 }

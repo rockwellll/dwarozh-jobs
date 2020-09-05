@@ -32,5 +32,14 @@ return [
     'ready_to_find_your_future' => 'Are you ready to find your future?',
     'create_an_account' => 'Create an account',
     'to_apply_easier' => 'To start applying to jobs easily',
-    'resume' => 'Your resume'
+    'resume' => 'Resume',
+    'choose_resume' => 'Choose Resume',
+    'no_file_selected' => 'No file selected',
+    'locations' => [
+        'erbil' => 'Erbil',
+        'sulaimaniya' => 'Sulaimaniya',
+        'duhok' => 'Duhok',
+        'kerkuk' => 'Kerkuk'
+    ],
+    'select_location' => 'Choose a location',
 ];

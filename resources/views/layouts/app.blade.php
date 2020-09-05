@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/register.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -44,7 +45,7 @@
             </ul>
         </nav>
     </header>
-    <section class="w-full px-10">
+    <section class="w-full px-3 md:px-10">
         <div id="app">
 {{--            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">--}}
 {{--                <div class="container">--}}

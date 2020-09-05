@@ -32,5 +32,14 @@ return [
     'ready_to_find_your_future' => 'ئایا تۆ ئاماده‌ی دواڕۆژت بگۆڕی؟',
     'create_an_account' => 'هه‌ژمارێک دروست بکه',
     'to_apply_easier' => 'بۆ ئه‌وه‌ی ئاسانتر تقدیمی کار بکه‌یت',
-    'resume' => 'سی-ڤی'
+    'resume' => 'سی-ڤی',
+    'choose_resume' => 'سی-ڤی هه‌ڵبژاردن',
+    'no_file_selected' => 'هیچ سی-ڤی هه‌ڵنه‌بژاردیه‌',
+    'locations' => [
+        'erbil' => 'هه‌ولێر',
+        'sulaimaniya' => 'سلێمانی',
+        'duhok' => 'دهۆک',
+        'kerkuk' => 'که‌رکوک'
+    ],
+    'select_location' => 'شوێنێک هه‌ڵبژێره‌',
 ];

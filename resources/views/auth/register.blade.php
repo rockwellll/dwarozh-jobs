@@ -1,21 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div style=" position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);" class="w-full flex flex-col items-center justify-center">
+    <div class="w-full flex flex-col items-center justify-center centered">
 
-        <form  class="w-2/3 text-accent bg-white rounded-md p-5" action="" method="POST">
-            <div class="flex flex-col items-center text-primary my-5">
-                <h1 class="text-5xl">{{__('auth.create_an_account')}}</h1>
-                <h2>{{__('auth.to_apply_easier')}}</h2>
+        <form class="w-full md:w-4/5 lg:w-2/3 text-accent bg-white rounded-md p-1  md:p-5  shadow-lg" action=""
+              method="POST">
+            <div class="flex w-full flex-col items-center my-5 text-primary">
+                <h1 class="text-4xl md:text-5xl">{{__('auth.create_an_account')}}</h1>
+                <h2 class="text-primary-700">{{__('auth.to_apply_easier')}}</h2>
             </div>
 
-            <div class="flex w-full justify-around">
-                <div class="flex w-2/5 flex-col">
+            <div class="flex flex-col md:flex-row w-full justify-around items-center">
+                <div class="flex w-4/5 md:w-2/5 flex-col">
                     <label class="mx-1" for="firstName">
                         {{__('auth.first_name')}}
                     </label>
@@ -26,9 +22,9 @@
                         value="{{old('firstName')}}"
                         name="firstName"
                         placeholder="{{__("auth.first_name")}}"
-                    class="bg-body">
+                        class="bg-body">
                 </div>
-                <div class="flex w-2/5 flex-col">
+                <div class="flex w-4/5 md:w-2/5 flex-col">
                     <label for="lastName">
                         {{__('auth.last_name')}}
                     </label>
@@ -41,8 +37,8 @@
                         class="bg-body">
                 </div>
             </div>
-            <div class="flex w-full justify-around my-4">
-                <div class="flex w-2/5 flex-col">
+            <div class="flex w-full justify-around my-4 flex-col md:flex-row items-center">
+                <div class="flex w-4/5 md:w-2/5 flex-col">
                     <label class="mx-1" for="email">
                         {{__('auth.email')}}
                     </label>
@@ -55,21 +51,21 @@
                         placeholder="{{__("auth.email")}}"
                         class="bg-body">
                 </div>
-                <div class="flex w-2/5 flex-col">
+                <div class="flex w-4/5 md:w-2/5 flex-col">
                     <label for="location">
                         {{__('auth.location')}}
                     </label>
 
                     <select name="location" id="location" class="bg-body">
-                        <option value="Erbil">Erbil</option>
-                        <option value="Duhok">Duhok</option>
-                        <option value="Sulaimanya">Sulaimanya</option>
-                        <option value="Kerkuk">Kerkuk</option>
+                        <option disabled selected value class="text-gray-500"> {{__('auth.select_location')}} </option>
+                        @foreach(array_keys(__('auth.locations')) as $l)
+                            <option value="{{$l}}">{{__('auth.locations')[$l]}}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
-            <div class="flex w-full justify-around my-4">
-                <div class="flex w-2/5 flex-col">
+            <div class="flex w-full justify-around my-4 flex-col md:flex-row items-center">
+                <div class="flex w-4/5 md:w-2/5 flex-col">
                     <label class="mx-1" for="password">
                         {{__('auth.password')}}
                     </label>
@@ -83,7 +79,7 @@
                         placeholder="{{__("auth.password")}}"
                         class="bg-body">
                 </div>
-                <div class="flex w-2/5 flex-col">
+                <div class="flex w-4/5 md:w-2/5 flex-col">
                     <label for="password_confirmation">
                         {{__('auth.confirm_password')}}
                     </label>
@@ -99,44 +95,39 @@
                 </div>
             </div>
 
-            <div class="flex w-full justify-around my-4">
+            <div class="flex w-full justify-around my-4 flex-col md:flex-row items-center">
                 <div class="w-2/5"></div>
-                <div class="flex w-2/5 flex-col">
-                    <label for="file">
-                        {{__('auth.resume')}}
-                    </label>
+                <div class="flex w-4/5 md:w-2/5 flex-col">
 
-                    <div class="flex">
-                                            <span id="chosenFile">
-    </span>
+                        <span class="">
+                            {{__('auth.resume')}}
+                        </span>
 
-                        <input type="file" name="attachment" id="file" style="display: none;">
+                    <div class="flex items-center bg-body rounded-md border-2 border-gray-400">
+                        <label for="file" class="file-label p-2 bg-body">
+                            {{__('auth.choose_resume')}}
+                        </label>
+                        <span id="chosenFile" class="text-gray-500">
+                           {{__('auth.no_file_selected')}}
+                        </span>
                     </div>
-                    {{--                    <input--}}
-                    {{--                        required--}}
-                    {{--                        autocomplete="new-password"--}}
-{{--                        type="password"--}}
-{{--                        id="password_confirmation"--}}
-{{--                        value="{{old('password_confirmation')}}"--}}
-{{--                        name="password_confirmation"--}}
-{{--                        placeholder="{{__("auth.confirm_password")}}"--}}
-{{--                        class="bg-body">--}}
+                    <input type="file" name="attachment" id="file" style="display: none;">
                 </div>
             </div>
 
-            <div class="flex flex-col items-center">
-                <h6 class="text-gray-600 text-md">{{__('auth.ready_to_find_your_future')}}</h6>
-                <button class="px-3 py-2 bg-primary text-white rounded-md mt-2">
+            <div class="flex flex-col items-center my-2">
+                <h6 class="text-accent-800 text-md">{{__('auth.ready_to_find_your_future')}}</h6>
+                <button class="px-3 py-2 primary-button outline-none focus:outline-none focus:shadow-outline">
                     {{__('auth.create_account')}}
                 </button>
             </div>
         </form>
 
-       <div class="w-2/3 text-sm flex mt-2">
-           <h1 class="mx-2 text-gray-600">{{__('auth.already_have_an_account')}}</h1>
+        <div class="w-2/3 text-sm flex mt-2">
+            <h1 class="mx-2 text-accent-800">{{__('auth.already_have_an_account')}}</h1>
 
-           <a class="link" href="{{route('login')}}">{{__('auth.login')}}</a>
-       </div>
+            <a class="link" href="{{route('login')}}">{{__('auth.login')}}</a>
+        </div>
     </div>
     {{--    <example-component></example-component>--}}
 
