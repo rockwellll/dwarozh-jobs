@@ -42,4 +42,5 @@ return [
         'kerkuk' => 'Kerkuk'
     ],
     'select_location' => 'Choose a location',
+    'view_in_another_language' => 'گۆڕین بۆ کوردی'
 ];

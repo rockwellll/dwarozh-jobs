@@ -42,4 +42,5 @@ return [
         'kerkuk' => 'که‌رکوک'
     ],
     'select_location' => 'شوێنێک هه‌ڵبژێره‌',
+    'view_in_another_language' => 'View in English'
 ];

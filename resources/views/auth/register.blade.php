@@ -123,10 +123,18 @@
             </div>
         </form>
 
-        <div class="w-2/3 text-sm flex mt-2">
-            <h1 class="mx-2 text-accent-800">{{__('auth.already_have_an_account')}}</h1>
+        <div class="w-2/3 text-sm flex mt-2 flex justify-between">
+            <div class="flex">
+                <h1 class="mx-2 text-accent-800">{{__('auth.already_have_an_account')}}</h1>
 
-            <a class="link" href="{{route('login')}}">{{__('auth.login')}}</a>
+                <a class="link" href="{{route('login', ['locale' => \Illuminate\Support\Facades\App::getLocale()])}}">{{__('auth.login')}}</a>
+            </div>
+
+            @if(App::getLocale() == 'ku')
+                <a class="link" style="text-underline-position: under;" href="{{route('register', ['locale' => 'en'])}}">{{__('auth.view_in_another_language')}}</a>
+            @else
+                <a class="link" style="text-underline-position: under;" href="{{route('register', ['locale' => 'ku'])}}">{{__('auth.view_in_another_language')}}</a>
+            @endif
         </div>
     </div>
     {{--    <example-component></example-component>--}}

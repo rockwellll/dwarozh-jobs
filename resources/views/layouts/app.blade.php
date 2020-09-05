@@ -40,7 +40,7 @@
                     <a href="">Home</a>
                 </li>
                 <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="">Login</a>
                 </li>
             </ul>
         </nav>
