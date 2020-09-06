@@ -42,6 +42,12 @@
                 <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
                     <a href="">Login</a>
                 </li>
+                <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
+                    <form method="POST" action="{{route('logout')}}">
+                        @csrf
+                        <button>Logout</button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </header>
