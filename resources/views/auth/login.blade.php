@@ -1,4 +1,8 @@
-{{--@extends('layouts.app')--}}
+@extends('layouts.app')
+
+@section('title')
+    {{__('page-title.login')}}
+@endsection
 
 {{--@section('content')--}}
 {{--<div class="container">--}}

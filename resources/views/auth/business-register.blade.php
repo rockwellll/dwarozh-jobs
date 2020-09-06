@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    {{__('page-title.register')}}
+@endsection
+
 @section('content')
     <div class="w-full flex flex-col items-center justify-center centered">
 
