@@ -3,8 +3,12 @@
 @section('content')
     <div class="w-full flex flex-col items-center justify-center centered">
 
-        <form class="w-full md:w-4/5 lg:w-2/3 text-accent bg-white rounded-md p-1  md:p-5  shadow-lg" action=""
-              method="POST">
+        <form
+            class="w-full md:w-4/5 lg:w-2/3 text-accent text-sm md:text-base bg-white rounded-md p-1  md:p-5  shadow-lg"
+            action="/{{App::getLocale()}}/register"
+            method="POST">
+            @csrf
+
             <div class="flex w-full flex-col items-center my-5 text-primary">
                 <h1 class="text-4xl md:text-5xl">{{__('auth.create_an_account')}}</h1>
                 <h2 class="text-primary-700">{{__('auth.to_apply_easier')}}</h2>
@@ -22,19 +26,28 @@
                         value="{{old('firstName')}}"
                         name="firstName"
                         placeholder="{{__("auth.first_name")}}"
-                        class="bg-body">
+                        class="bg-body @error('firstName') border-red-500 @enderror">
+
+                    @error('firstName')
+                    <span class="text-red-400">{{$message}}</span>
+                    @enderror
                 </div>
                 <div class="flex w-4/5 md:w-2/5 flex-col">
                     <label for="lastName">
                         {{__('auth.last_name')}}
                     </label>
                     <input
+                        required
                         type="text"
                         id="lastName"
                         value="{{old('lastName')}}"
                         placeholder="{{__("auth.last_name")}}"
                         name="lastName"
-                        class="bg-body">
+                        class="bg-body @error('lastName') border-red-500 @enderror">
+
+                    @error('lastName')
+                    <span class="text-red-400">{{$message}}</span>
+                    @enderror
                 </div>
             </div>
             <div class="flex w-full justify-around my-4 flex-col md:flex-row items-center">
@@ -49,19 +62,22 @@
                         value="{{old('email')}}"
                         name="email"
                         placeholder="{{__("auth.email")}}"
-                        class="bg-body">
+                        class="bg-body @error('email') border-red-500 @enderror">
+
+                    @error('email')
+                    <span class="text-red-400">{{$message}}</span>
+                    @enderror
                 </div>
                 <div class="flex w-4/5 md:w-2/5 flex-col">
                     <label for="location">
                         {{__('auth.location')}}
                     </label>
 
-                    <select name="location" id="location" class="bg-body">
-                        <option disabled selected value class="text-gray-500"> {{__('auth.select_location')}} </option>
-                        @foreach(array_keys(__('auth.locations')) as $l)
-                            <option value="{{$l}}">{{__('auth.locations')[$l]}}</option>
-                        @endforeach
-                    </select>
+                    @include('partials.locations-select-input')
+
+                    @error('location')
+                    <span class="text-red-400">{{$message}}</span>
+                    @enderror
                 </div>
             </div>
             <div class="flex w-full justify-around my-4 flex-col md:flex-row items-center">
@@ -74,10 +90,13 @@
                         autocomplete="new-password"
                         type="password"
                         id="password"
-                        value="{{old('password')}}"
                         name="password"
                         placeholder="{{__("auth.password")}}"
-                        class="bg-body">
+                        class="bg-body @error('password') border-red-500 @enderror">
+
+                    @error('password')
+                    <span class="text-red-400">{{$message}}</span>
+                    @enderror
                 </div>
                 <div class="flex w-4/5 md:w-2/5 flex-col">
                     <label for="password_confirmation">
@@ -121,107 +140,33 @@
                     {{__('auth.create_account')}}
                 </button>
             </div>
+
+
+            <div class="flex text-xs md:text-sm flex-col mb-2">
+                <span>{{__('auth.want_to_post_jobs')}}</span>
+                <a href="{{route('business-register', ['locale' => App::getLocale()])}}"
+                   class="link padded-underline mx-2">{{__('auth.create_buisness_account')}}</a>
+            </div>
         </form>
 
-        <div class="w-2/3 text-sm flex mt-2 flex justify-between">
-            <div class="flex">
-                <h1 class="mx-2 text-accent-800">{{__('auth.already_have_an_account')}}</h1>
+        <div class="w-2/3 text-sm flex mt-2 flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col my-2">
+                <div class="flex">
+                    <h1 class="mx-2 text-accent-800">{{__('auth.already_have_an_account')}}</h1>
 
-                <a class="link" href="{{route('login', ['locale' => \Illuminate\Support\Facades\App::getLocale()])}}">{{__('auth.login')}}</a>
+                    <a class="link padded-underline"
+                       href="{{route('login', ['locale' => \Illuminate\Support\Facades\App::getLocale()])}}">{{__('auth.login')}}</a>
+                </div>
+
             </div>
 
             @if(App::getLocale() == 'ku')
-                <a class="link" style="text-underline-position: under;" href="{{route('register', ['locale' => 'en'])}}">{{__('auth.view_in_another_language')}}</a>
+                <a class="link padded-underline"
+                   href="{{route('register', ['locale' => 'en'])}}">{{__('auth.view_in_another_language')}}</a>
             @else
-                <a class="link" style="text-underline-position: under;" href="{{route('register', ['locale' => 'ku'])}}">{{__('auth.view_in_another_language')}}</a>
+                <a class="link padded-underline"
+                   href="{{route('register', ['locale' => 'ku'])}}">{{__('auth.view_in_another_language')}}</a>
             @endif
         </div>
     </div>
-    {{--    <example-component></example-component>--}}
-
-    {{--    <div class="container">--}}
-    {{--        <div class="row justify-content-center">--}}
-    {{--            <div class="col-md-8">--}}
-    {{--                <div class="card">--}}
-    {{--                    <div class="card-header">{{ __('Register') }}</div>--}}
-
-    {{--                    <div class="card-body">--}}
-    {{--                        <form method="POST" action="{{ route('register') }}">--}}
-    {{--                            @csrf--}}
-
-    {{--                            <div class="form-group row">--}}
-    {{--                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>--}}
-
-    {{--                                <div class="col-md-6">--}}
-    {{--                                    <input id="name" type="text"--}}
-    {{--                                           class="form-control @error('name') is-invalid @enderror" name="name"--}}
-    {{--                                           value="{{ old('name') }}" required autocomplete="name" autofocus>--}}
-
-    {{--                                    @error('name')--}}
-    {{--                                    <span class="invalid-feedback" role="alert">--}}
-    {{--                                        <strong>{{ $message }}</strong>--}}
-    {{--                                    </span>--}}
-    {{--                                    @enderror--}}
-    {{--                                </div>--}}
-    {{--                            </div>--}}
-
-    {{--                            <div class="form-group row">--}}
-    {{--                                <label for="email"--}}
-    {{--                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>--}}
-
-    {{--                                <div class="col-md-6">--}}
-    {{--                                    <input id="email" type="email"--}}
-    {{--                                           class="form-control @error('email') is-invalid @enderror" name="email"--}}
-    {{--                                           value="{{ old('email') }}" required autocomplete="email">--}}
-
-    {{--                                    @error('email')--}}
-    {{--                                    <span class="invalid-feedback" role="alert">--}}
-    {{--                                        <strong>{{ $message }}</strong>--}}
-    {{--                                    </span>--}}
-    {{--                                    @enderror--}}
-    {{--                                </div>--}}
-    {{--                            </div>--}}
-
-    {{--                            <input type="hidden" name="buissness_account" value="1">--}}
-
-    {{--                            <div class="form-group row">--}}
-    {{--                                <label for="password"--}}
-    {{--                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
-
-    {{--                                <div class="col-md-6">--}}
-    {{--                                    <input id="password" type="password"--}}
-    {{--                                           class="form-control @error('password') is-invalid @enderror" name="password"--}}
-    {{--                                           required autocomplete="new-password">--}}
-
-    {{--                                    @error('password')--}}
-    {{--                                    <span class="invalid-feedback" role="alert">--}}
-    {{--                                        <strong>{{ $message }}</strong>--}}
-    {{--                                    </span>--}}
-    {{--                                    @enderror--}}
-    {{--                                </div>--}}
-    {{--                            </div>--}}
-
-    {{--                            <div class="form-group row">--}}
-    {{--                                <label for="password-confirm"--}}
-    {{--                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>--}}
-
-    {{--                                <div class="col-md-6">--}}
-    {{--                                    <input id="password-confirm" type="password" class="form-control"--}}
-    {{--                                           name="password_confirmation" required autocomplete="new-password">--}}
-    {{--                                </div>--}}
-    {{--                            </div>--}}
-
-    {{--                            <div class="form-group row mb-0">--}}
-    {{--                                <div class="col-md-6 offset-md-4">--}}
-    {{--                                    <button type="submit" class="btn btn-primary">--}}
-    {{--                                        {{ __('Register') }}--}}
-    {{--                                    </button>--}}
-    {{--                                </div>--}}
-    {{--                            </div>--}}
-    {{--                        </form>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
 @endsection
