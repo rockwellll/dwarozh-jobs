@@ -52,13 +52,17 @@ input:focus {
 }
 
 input, select {
-    @apply p-2 w-full outline-none border-gray-400 border-2 rounded-lg text-accent-800 mt-1;
+    @apply p-2 w-full outline-none border-gray-400 border-2 rounded-lg text-accent-800 my-1;
 }
 
 .link {
     text-decoration: underline;
     text-decoration-color: #159195;
     color: #159195;
+}
+
+.padded-underline {
+    text-underline-position: under;
 }
 
 .link:hover {
