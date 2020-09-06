@@ -29,12 +29,13 @@ return [
     'password_dont_match' => 'وشه‌ نهێنیه‌کان ده‌بێت وه‌ک یه‌ک بن',
     'create_account' => 'هه‌ژماره‌که‌م دروست بکه‌',
     'already_have_an_account' => 'ئایا تۆ هه‌ژمارت هه‌یه‌؟',
-    'ready_to_find_your_future' => 'ئایا تۆ ئاماده‌ی دواڕۆژت بگۆڕی؟',
+    'ready_to_find_your_future' => ' ئاماده‌ی دواڕۆژت بگۆڕی؟',
     'create_an_account' => 'هه‌ژمارێک دروست بکه',
     'to_apply_easier' => 'بۆ ئه‌وه‌ی ئاسانتر تقدیمی کار بکه‌یت',
     'resume' => 'سی-ڤی',
     'choose_resume' => 'سی-ڤی هه‌ڵبژاردن',
     'no_file_selected' => 'هیچ سی-ڤی هه‌ڵنه‌بژاردیه‌',
+    'no_image_selected' => 'هیچ وێنه‌ هه‌ڵنه‌بژاردیه‌',
     'locations' => [
         'erbil' => 'هه‌ولێر',
         'sulaimaniya' => 'سلێمانی',
@@ -42,5 +43,17 @@ return [
         'kerkuk' => 'که‌رکوک'
     ],
     'select_location' => 'شوێنێک هه‌ڵبژێره‌',
-    'view_in_another_language' => 'View in English'
+    'view_in_another_language' => 'View in English',
+    'want_to_post_jobs' => 'ئایا تۆ خاوه‌ن کاریت، وه‌ ده‌ته‌وێت هه‌لی کار بڵاوبکه‌یته‌وه‌؟',
+    'want_to_apply_to_jobs' => 'ئایا ده‌ته‌وێت پێشکه‌شی کار بکه‌یت؟',
+    'create_user_account' => 'هه‌ژماری به‌کارهێنه‌ر دروست بکه‌',
+    'create_buisness_account' => 'هه‌ژماری تایبه‌ت به‌ کۆمپانیا دروست بکه‌',
+    'create_company_account' => 'هه‌ژماری کۆمپانیا دروست بکه‌',
+    'to_post_jobs' => 'بۆ ئه‌وه‌ی هه‌لی کار بڕه‌خسێنیت',
+    'company_name' => 'ناوی کۆمپانیا',
+    'company_location' => 'شوێن',
+    'mobile_number' => 'ژماره‌ی مۆبایل',
+    'company_image' => 'وێنه‌ی کۆمپانیا',
+    'choose_image' => 'وێنه‌یه‌ک هه‌ڵبژێره',
+    'ready_to_change_future' => 'ئاماده‌ی دواڕۆژی که‌سانێک بگۆڕیت؟'
 ];

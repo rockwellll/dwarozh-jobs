@@ -35,6 +35,7 @@ return [
     'resume' => 'Resume',
     'choose_resume' => 'Choose Resume',
     'no_file_selected' => 'No file selected',
+    'no_image_selected' => 'No file selected',
     'locations' => [
         'erbil' => 'Erbil',
         'sulaimaniya' => 'Sulaimaniya',
@@ -42,5 +43,17 @@ return [
         'kerkuk' => 'Kerkuk'
     ],
     'select_location' => 'Choose a location',
-    'view_in_another_language' => 'گۆڕین بۆ کوردی'
+    'view_in_another_language' => 'گۆڕین بۆ کوردی',
+    'want_to_post_jobs' => 'You have a business, and you want to post jobs?',
+    'want_to_apply_to_jobs' => 'You want to apply to jobs?',
+    'create_user_account' => 'Create account',
+    'create_buisness_account' => 'Create business account',
+    'create_company_account' => 'Create company account',
+    'to_post_jobs' => 'To create opportunities',
+    'company_name' => 'Company Name',
+    'company_location' => 'Location',
+    'mobile_number' => 'Mobile number',
+    'company_image' => 'Company image',
+    'choose_image' => 'Choose image',
+    'ready_to_change_future' => 'Ready to change peoples lives?'
 ];
