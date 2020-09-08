@@ -4,74 +4,83 @@
     {{__('page-title.login')}}
 @endsection
 
-{{--@section('content')--}}
-{{--<div class="container">--}}
-{{--    <div class="row justify-content-center">--}}
-{{--        <div class="col-md-8">--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-header">{{ __('Login') }}</div>--}}
+@section('content')
+    <div class="w-full flex flex-col items-center justify-center centered">
 
-{{--                <div class="card-body">--}}
-{{--                    <form method="POST" action="{{ route('login') }}">--}}
-{{--                        @csrf--}}
+        <form
+            class="w-full md:w-4/5 lg:w-1/3 flex flex-col text-accent text-sm md:text-base bg-white rounded-md p-1 px-3  md:p-5  shadow-lg"
+            action="{{route('login', ['locale' => App::getLocale()])}}"
+            method="POST">
+            @csrf
 
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>--}}
+            <div class="flex w-full flex-col items-center my-5 text-primary">
+                <h1 class="text-2xl md:text-3xl lg:text-5xl">{{__('auth.login_to_your_account')}}</h1>
+            </div>
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
+            <div class="flex w-full justify-around my-2 flex-col  items-center">
+                <div class="flex w-full md:w-4/5 flex-col">
+                    <label class="mx-1" for="email">
+                        {{__('auth.email')}}
+                    </label>
+                    <input
+                        required
+                        type="email"
+                        id="email"
+                        value="{{old('email')}}"
+                        name="email"
+                        placeholder="{{__("auth.email")}}"
+                        class="bg-body @error('email') border-red-500 @enderror">
 
-{{--                                @error('email')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                    @error('email')
+                    <span class="text-red-400">{{$message}}</span>
+                    @enderror
+                </div>
 
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
+                <div class="flex w-full md:w-4/5 flex-col">
+                    <label class="mx-1" for="password">
+                        {{__('auth.password')}}
+                    </label>
+                    <input
+                        required
+                        autocomplete="new-password"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="{{__("auth.password")}}"
+                        class="bg-body @error('password') border-red-500 @enderror">
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">--}}
+                    @error('password')
+                    <span class="text-red-400">{{$message}}</span>
+                    @enderror
+                </div>
 
-{{--                                @error('password')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                <div class="w-full md:w-4/5 flex items-center my-2">
+                    <input type="checkbox" name="remember" id="remember"/>
+                    <label for="remember" class="mx-2">
+                        {{__('auth.keep_me_logged_in')}}
+                    </label>
+                </div>
+            </div>
 
-{{--                        <div class="form-group row">--}}
-{{--                            <div class="col-md-6 offset-md-4">--}}
-{{--                                <div class="form-check">--}}
-{{--                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
 
-{{--                                    <label class="form-check-label" for="remember">--}}
-{{--                                        {{ __('Remember Me') }}--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+            <button class="self-center px-5 py-2 primary-button outline-none focus:outline-none focus:shadow-outline">
+                {{__('auth.login')}}
+            </button>
 
-{{--                        <div class="form-group row mb-0">--}}
-{{--                            <div class="col-md-8 offset-md-4">--}}
-{{--                                <button type="submit" class="btn btn-primary">--}}
-{{--                                    {{ __('Login') }}--}}
-{{--                                </button>--}}
+        </form>
 
-{{--                                @if (Route::has('password.request'))--}}
-{{--                                    <a class="btn btn-link" href="{{ route('password.request') }}">--}}
-{{--                                        {{ __('Forgot Your Password?') }}--}}
-{{--                                    </a>--}}
-{{--                                @endif--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--@endsection--}}
+        <div class="w-full md:w-3/5 lg:w-1/3 text-sm flex mt-2 flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col sm:my-2 md:my-0">
+                <div class="flex">
+                    <h1 class="mx-2 text-accent-800">{{__('auth.dont_have_account')}}</h1>
+
+                    <a class="link padded-underline"
+                       href="{{route('register', ['locale' => \Illuminate\Support\Facades\App::getLocale()])}}">{{__('auth.create_account')}}</a>
+                </div>
+
+            </div>
+
+            @include('partials.language-change-links', ['route' => 'login'])
+        </div>
+    </div>
+@endsection
