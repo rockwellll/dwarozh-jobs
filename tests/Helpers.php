@@ -9,3 +9,4 @@ function assertExample(): void
 {
     test()->assertTrue(true);
 }
+
