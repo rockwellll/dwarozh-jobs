@@ -9,19 +9,50 @@
     background: rgba(33, 33, 33, .95);
 }
 
-.bg-primary {
-    background-color: #159195;
+.bg-accent-850 {
+    background: rgba(33, 33, 33, .85);
 }
 
-.bg-primary-500 {
-    background: rgba(21, 145, 149, .59);
+
+.bg-accent-800 {
+    background: rgba(21, 145, 149, .8);
+}
+
+
+.bg-accent-700 {
+    background: rgba(21, 145, 149, .7);
+}
+
+
+.bg-accent-600 {
+    background: rgba(21, 145, 149, .6);
+}
+
+.bg-primary {
+    background-color: #159195;
 }
 
 .bg-primary-900 {
     background: rgba(21, 145, 149, .9);
 }
 
+.bg-primary-800{
+    background: rgba(21, 145, 149, .8);
+}
+
+.bg-primary-700 {
+    background: rgba(21, 145, 149, .75);
+}
+
+.bg-primary-600 {
+    background: rgba(21, 145, 149, .6);
+}
+
 .text-primary {
+    color: rgba(21, 145, 149, .90);
+}
+
+.text-primary-850{
     color: rgba(21, 145, 149, .85);
 }
 
@@ -29,12 +60,28 @@
     color: rgba(21, 145, 149, .7);
 }
 
+.text-primary-600 {
+    color: rgba(21, 145, 149, .6);
+}
+
 .text-accent {
     color: #212121;
 }
 
+.text-accent-900 {
+    color: rgba(33, 33, 33, .9);
+}
+
 .text-accent-800 {
     color: rgba(33, 33, 33, .85);
+}
+
+.text-accent-700 {
+    color: rgba(33, 33, 33, .7);
+}
+
+.text-accent-600 {
+    color: rgba(33, 33, 33, .6);
 }
 
 .bg-body {
@@ -51,8 +98,15 @@ input:focus {
 
 }
 
-input, select {
+input, select  {
     @apply p-2 w-full outline-none border-gray-400 border-2 rounded-lg text-accent-800 my-1;
+}
+
+input[type="checkbox"] {
+    padding: unset;
+    width: unset;
+    border:unset;
+    margin: unset;
 }
 
 .link {
@@ -66,8 +120,18 @@ input, select {
 }
 
 .link:hover {
-    color: #137578;
-    text-decoration-color:#137578;
+    @apply text-primary-600;
+    text-decoration-color: rgba(21, 145, 149, .6);
+}
+
+.link.accent {
+    color: #212121;
+    text-decoration-color:#212121;
+}
+
+.link.accent:hover {
+    @apply text-accent-600;
+    text-decoration-color: rgba(33, 33, 33, .6)
 }
 
 label.file-label:hover {
