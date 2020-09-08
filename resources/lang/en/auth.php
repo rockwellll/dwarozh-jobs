@@ -19,7 +19,7 @@ return [
     'login_to_account' => "Login To Your Account",
     'email' => "Email",
     'password' => "Password",
-    'login' => 'Log in',
+    'login' => 'Login',
     'dont_have_account' => 'Dont have an account?',
     'signup' => 'Sign up',
     'first_name' => 'First Name',
@@ -55,5 +55,7 @@ return [
     'mobile_number' => 'Mobile number',
     'company_image' => 'Company image',
     'choose_image' => 'Choose image',
-    'ready_to_change_future' => 'Ready to change peoples lives?'
+    'ready_to_change_future' => 'Ready to change peoples lives?',
+    'login_to_your_account' => 'Login',
+    'keep_me_logged_in' => 'Keep me signed in'
 ];

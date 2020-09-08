@@ -55,5 +55,7 @@ return [
     'mobile_number' => 'ژماره‌ی مۆبایل',
     'company_image' => 'وێنه‌ی کۆمپانیا',
     'choose_image' => 'وێنه‌یه‌ک هه‌ڵبژێره',
-    'ready_to_change_future' => 'ئاماده‌ی دواڕۆژی که‌سانێک بگۆڕیت؟'
+    'ready_to_change_future' => 'ئاماده‌ی دواڕۆژی که‌سانێک بگۆڕیت؟',
+    'login_to_your_account' => 'داخڵبوون',
+    'keep_me_logged_in' => 'له‌ ژووره‌وه‌ بمهێله‌ره‌وه‌'
 ];
