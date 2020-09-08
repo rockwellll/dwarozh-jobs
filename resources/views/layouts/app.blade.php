@@ -14,7 +14,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    @if(Request::path() == '/ku/register' || Request::path() == '/ku/register')
+    @if(str_contains(Request::path(), 'register'))
         <script src="{{ asset('js/register.js') }}" defer></script>
     @endif
 
@@ -39,7 +39,6 @@
     <header class="w-full px-10 bg-accent" style="color: #F8F8F8">
         <nav class="w-full flex justify-between items py-2 text-center">
             <h1>Dwarozh Jobs</h1>
-
             <ul class="flex">
                 <li class="px-2 py-1 mx-2">
                     <a href="">Home</a>
