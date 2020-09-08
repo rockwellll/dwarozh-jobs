@@ -121,35 +121,27 @@
             <div class="flex w-full justify-around my-4 flex-col md:flex-row items-center">
                 <div class="w-2/5"></div>
                 <div class="flex w-4/5 md:w-2/5 flex-col">
+                    <x-file
+                        label="{{ __('auth.resume')}}"
+                        buttonLabel="{{__('auth.choose_resume')}}"
+                        emptyStateText="{{__('auth.no_file_selected')}}">
 
-                        <span class="">
-                            {{__('auth.resume')}}
-                        </span>
-
-                    <div class="flex items-center bg-body rounded-md border-2 border-gray-400">
-                        <label for="file" class="file-label p-2 bg-body">
-                            {{__('auth.choose_resume')}}
-                        </label>
-                        <span id="chosenFile" class="text-gray-500">
-                           {{__('auth.no_file_selected')}}
-                        </span>
-                    </div>
-                    <input type="file" name="attachment" id="file" style="display: none;">
+                    </x-file>
                 </div>
             </div>
 
             <div class="flex flex-col items-center my-2">
                 <h6 class="text-accent-800 text-md">{{__('auth.ready_to_find_your_future')}}</h6>
-                <button class="px-3 py-2 primary-button outline-none focus:outline-none focus:shadow-outline">
+                <button class="px-5 py-2 primary-button outline-none focus:outline-none focus:shadow-outline">
                     {{__('auth.create_account')}}
                 </button>
             </div>
 
 
-            <div class="flex text-xs md:text-sm flex-col mb-2">
+            <div class="flex text-xs md:text-sm flex-col md:flex-row sm:mb-2 md:mb-0">
                 <span>{{__('auth.want_to_post_jobs')}}</span>
                 <a href="{{route('business-register', ['locale' => App::getLocale()])}}"
-                   class="link padded-underline mx-2">{{__('auth.create_buisness_account')}}</a>
+                   class="link padded-underline sm:mx-2 md:mx-2">{{__('auth.create_buisness_account')}}</a>
             </div>
         </form>
 
@@ -164,13 +156,7 @@
 
             </div>
 
-            @if(App::getLocale() == 'ku')
-                <a class="link padded-underline"
-                   href="{{route('register', ['locale' => 'en'])}}">{{__('auth.view_in_another_language')}}</a>
-            @else
-                <a class="link padded-underline"
-                   href="{{route('register', ['locale' => 'ku'])}}">{{__('auth.view_in_another_language')}}</a>
-            @endif
+            @include('partials.language-change-links', ['route' => 'register'])
         </div>
     </div>
 @endsection
