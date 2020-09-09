@@ -17,10 +17,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    @if(str_contains(Request::path(), 'register'))
-        <script src="{{ asset('js/register.js') }}" defer></script>
-    @endif
-
+    @stack('scripts')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

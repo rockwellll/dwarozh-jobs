@@ -4,6 +4,10 @@
     {{__('page-title.register')}}
 @endsection
 
+@section('description')
+    {{__('page-description.register')}}
+@endsection
+
 @section('content')
     <div class="w-full flex flex-col items-center justify-center centered">
 
@@ -121,12 +125,11 @@
             <div class="flex w-full justify-around my-4 flex-col md:flex-row items-center">
                 <div class="w-2/5"></div>
                 <div class="flex w-4/5 md:w-2/5 flex-col">
-                    <x-file
-                        label="{{ __('auth.resume')}}"
-                        buttonLabel="{{__('auth.choose_resume')}}"
-                        emptyStateText="{{__('auth.no_file_selected')}}">
-
-                    </x-file>
+                    @include('partials.file', [
+                        'label' => __('auth.resume'),
+                        'buttonLabel' => __('auth.choose_resume'),
+                        'emptyStateText' => __('auth.no_file_selected')
+                    ])
                 </div>
             </div>
 
@@ -160,3 +163,7 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="{{asset('js/register.js')}}" defer></script>
+@endpush

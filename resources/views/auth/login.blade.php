@@ -4,6 +4,11 @@
     {{__('page-title.login')}}
 @endsection
 
+
+@section('description')
+    {{__('page-description.login')}}
+@endsection
+
 @section('content')
     <div class="w-full flex flex-col items-center justify-center centered">
 
@@ -84,3 +89,8 @@
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script src="{{asset('register.js')}}"></script>
+@endpush
