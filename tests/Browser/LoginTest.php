@@ -5,7 +5,7 @@ use Laravel\Dusk\Browser;
 use App\User;
 
 beforeEach(function () {
-    factory(User::class)->create([
+    User::factory()->create([
         'email' => 'test@test.com',
         'location' => 'Erbil',
     ]);

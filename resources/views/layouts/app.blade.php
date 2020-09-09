@@ -9,7 +9,10 @@
 
     <title>
         @yield('title', config('app.name'))
+        | Dwarozh Jobs
     </title>
+
+    <meta name="description" content="@yield('description')">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
