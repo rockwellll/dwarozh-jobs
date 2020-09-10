@@ -37,7 +37,7 @@
 </head>
 <body>
     <header class="w-full px-10 bg-accent" style="color: #F8F8F8">
-        <nav class="w-full flex justify-between items py-2 text-center">
+        <nav class="w-full flex justify-between items py-5 text-center">
             <h1>Dwarozh Jobs</h1>
             <ul class="flex">
                 <li class="px-2 py-1 mx-2">

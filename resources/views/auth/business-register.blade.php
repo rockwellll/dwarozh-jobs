@@ -130,9 +130,9 @@
                 <div class="w-2/5"></div>
                 <div class="flex w-4/5 md:w-2/5 flex-col">
                     @include('partials.file', [
-                         'label' => __('auth.auth.company_image'),
-                         'buttonLabel' => __('auth.auth.choose_image'),
-                         'emptyStateText' => __('auth.auth.no_image_selected')
+                         'label' => __('auth.company_image'),
+                         'buttonLabel' => __('auth.choose_image'),
+                         'emptyStateText' => __('auth.no_image_selected')
                     ])
                 </div>
             </div>

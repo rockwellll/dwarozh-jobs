@@ -89,8 +89,3 @@
         </div>
     </div>
 @endsection
-
-
-@push('scripts')
-    <script src="{{asset('register.js')}}"></script>
-@endpush
