@@ -130,6 +130,7 @@
                         'buttonLabel' => __('auth.choose_resume'),
                         'emptyStateText' => __('auth.no_file_selected')
                     ])
+                    <about-resume-modal></about-resume-modal>
                 </div>
             </div>
 

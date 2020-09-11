@@ -1,18 +1,23 @@
 before_script:
+  - apt-get update
+  - apt-get install -qq git curl libmcrypt-dev libjpeg-dev libpng-dev libfreetype6-dev libbz2-dev
+  - apt-get install zlib1g-dev libzip-dev
   - apt-get clean
   - curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  - docker-php-ext-install pdo_mysql zip
+  - cp .env.example .env
 
 image: php:7.3
 
 services:
   - mysql:5.7
-  - php:7.3
 
 variables:
-  MYSQL_DATABASE: homestead
-  MYSQL_ROOT_PASSWORD: secret
+  MYSQL_DATABASE: mysql
+  MYSQL_ROOT_PASSWORD: root
   DB_HOST: mysql
   DB_USERNAME: root
+  MYSQL_PASSWORD: root
 
 
 stages:
@@ -21,9 +26,11 @@ stages:
 browser_test:
   stage: test
   script:
-    - cp .env.example .env
+    - echo "Starting pest tests"
+    - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
     - composer install
     - php artisan key:generate
+    - php artisan migrate
     - vendor/bin/pest
 
 

@@ -10,8 +10,8 @@
 @endsection
 
 @section('content')
-    <div class="w-full flex flex-col items-center justify-center centered">
 
+    <div class="w-full flex flex-col items-center justify-center centered">
         <form
             class="w-full md:w-4/5 lg:w-1/3 flex flex-col text-accent text-sm md:text-base bg-white rounded-md p-1 px-3  md:p-5  shadow-lg"
             action="{{route('login', ['locale' => App::getLocale()])}}"
