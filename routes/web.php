@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::prefix('/{locale}/')->middleware('language')->group(function () {
+    Route::view('/', 'welcome')->name('welcome');
+});
 
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 // Authentication Routes...
