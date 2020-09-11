@@ -23,10 +23,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link data-turbolinks-track="true" href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     @if(App::getLocale() == 'ku')
-        <link rel="stylesheet" href="{{asset('/css/rtl.css')}}">
+        <link  data-turbolinks-track="true" rel="stylesheet" href="{{asset('/css/rtl.css')}}">
     @endif
 
     <style>

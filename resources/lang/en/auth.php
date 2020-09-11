@@ -57,5 +57,8 @@ return [
     'choose_image' => 'Choose image',
     'ready_to_change_future' => 'Ready to change peoples lives?',
     'login_to_your_account' => 'Login',
-    'keep_me_logged_in' => 'Keep me signed in'
+    'keep_me_logged_in' => 'Keep me signed in',
+    "why_we_want_your_cv" => 'Your Resume(CV) is not required for you to create an account on Dwarozh Jobs, you can still apply to jobs without the resume,
+    however, if you provide your resume it makes applying to jobs easier',
+    'why_you_want_my_cv' => 'Why you want my cv?'
 ];

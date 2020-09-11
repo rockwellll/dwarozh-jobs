@@ -5,3 +5,11 @@ html {
 nav {
     direction: ltr;
 }
+
+.modal {
+    direction: ltr;
+}
+
+.modal p {
+    direction: rtl  ;
+}
