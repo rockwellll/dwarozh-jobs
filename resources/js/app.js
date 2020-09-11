@@ -8,6 +8,7 @@ import VueJSModal from "vue-js-modal";
 
 window.Vue = require('vue');
 import VModal from 'vue-js-modal'
+import Turbolinks from 'turbolinks';
 
 import _ from 'lodash'
 window._ = _
@@ -33,6 +34,7 @@ Vue.component('about-resume-modal', require('./components/about-resume-modal.vue
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Turbolinks.start();
 const app = new Vue({
     el: '#app',
 });
