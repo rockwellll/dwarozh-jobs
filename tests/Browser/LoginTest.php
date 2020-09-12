@@ -28,13 +28,13 @@ it('logs the user in when the credintial are correct', function () {
 });
 
 
-it('redirects a user to home page when trying to reach authentication pages if authenticated', function () {
-    $this->browse(function (Browser $browser) {
-        $browser->loginAs(User::find(1))
-            ->visit('/en/register')
-            ->assertPathIs('/home');
-    });
-});
+//it('redirects a user to home page when trying to reach authentication pages if authenticated', function () {
+//    $this->browse(function (Browser $browser) {
+//        $browser->loginAs(User::find(1))
+//            ->visit('/en/register')
+//            ->assertPathIs('/home');
+//    });
+//});
 
 it('notifies the user if validation fails', function () {
    $this->browse(function (Browser $browser) {

@@ -75,12 +75,15 @@ it('notifies the user that the passwords are not the same', function () {
 it('allows the user to switch between business and default user registration', function () {
     $this->browse(function (Browser $browser) {
         $browser->visit('/en/register')
+            ->waitForLink("Create business account")
             ->clickLink('Create business account')
             ->assertPathIs('/en/register/business')
+            ->waitForLink("Create account")
             ->clickLink('Create account')
             ->assertPathIs('/en/register');
     });
 });
+
 
 
 it('allows the business user to create account and redirect back to home page', function () {

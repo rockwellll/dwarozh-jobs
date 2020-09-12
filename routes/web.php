@@ -22,7 +22,7 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
 
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 // Authentication Routes...
-Route::prefix('{locale?}')->middleware('language')->group(function () {
+Route::prefix('/{locale}/')->middleware('language')->group(function () {
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
 
