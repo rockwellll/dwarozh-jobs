@@ -25,10 +25,10 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
-    - name: upgrade chrome-driver
-       run: |
-         php artisan dusk:install
-         php artisan dusk:chrome-driver
+    - name: upgrade chrome driver
+      run: |
+        php artisan dusk:install
+        php artisan dusk:chrome-driver
     - name: Start Chrome Driver
       run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
     - name: Execute tests (Unit and Feature tests) via PHPUnit
