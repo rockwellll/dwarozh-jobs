@@ -139,7 +139,7 @@
                 </button>
             </span>
         </div>
-           @include('partials.language-change-links', ['route' => 'welcome'])
+           @include('partials.language-change-links', ['route' => 'home'])
     </div>
 
 @endsection
