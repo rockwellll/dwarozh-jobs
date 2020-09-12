@@ -29,4 +29,7 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: vendor/bin/pest
+      run: |
+        php artisan dusk:install
+        php artisan dusk:chrome-driver
+        vendor/bin/pest
