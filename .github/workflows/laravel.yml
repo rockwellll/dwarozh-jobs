@@ -24,8 +24,8 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
-        mkdir -p database
-        touch database/database.sqlite
+        sudo systemctl start mysql
+        mysql --user="root" --password="root" -e "CREATE DATABASE 'laravel' character set UTF8mb4 collate utf8mb4_bin;"
     - name: Upgrade chrome driver
       run: php artisan dusk:chrome-driver
     - name: Start Chrome Driver
@@ -34,6 +34,5 @@ jobs:
       run: php artisan serve > /dev/null 2>&1 &
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        APP_URL: "http://127.0.0.1:8000"
       run: vendor/bin/pest
