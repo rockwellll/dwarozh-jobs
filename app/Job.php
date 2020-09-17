@@ -9,10 +9,15 @@ class Job extends Model
 {
     use HasFactory;
 
-    public function job(){
+    protected $guarded = [];
+
+    public function owner()
+    {
         return $this->belongsTo(BusinessUser::class);
     }
-     public function user(){
-        return $this->hasMany(DefaultUser::class);
-     }
+
+    public function applicants()
+    {
+        return $this->belongsToMany(DefaultUser::class, 'applicant_job', 'applicant_id', 'job_id');
+    }
 }

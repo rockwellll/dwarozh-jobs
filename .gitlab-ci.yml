@@ -1,17 +1,16 @@
-#before_script:
-#  - apt-get update
-#  - apt-get install -qq git curl libmcrypt-dev libjpeg-dev libpng-dev libfreetype6-dev libbz2-dev
-#  - apt-get install zlib1g-dev libzip-dev
-#  - apt-get clean
-#  - docker-php-ext-install pdo_mysql zip
-#  - curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-#  - php artisan serve
-#
-#image: php:7.3
-#
-#services:
-#  - mysql:5.7
-#
+before_script:
+  - apt-get update
+  - apt-get install -qq git curl libmcrypt-dev libjpeg-dev libpng-dev libfreetype6-dev libbz2-dev
+  - apt-get install zlib1g-dev libzip-dev
+  - apt-get clean
+  - docker-php-ext-install pdo_mysql zip
+  - curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+image: ubuntu:latest
+
+services:
+  - mysql:5.7
+
 #variables:
 #  MYSQL_ROOT_PASSWORD: secret
 #  MYSQL_DATABASE: homestead
@@ -38,16 +37,14 @@
 #    - php artisan migrate
 #    - vendor/bin/pest
 #    -
-#
-#
-#
-#variables:
-#  MYSQL_ROOT_PASSWORD: secret
-#  MYSQL_DATABASE: homestead
-#  MYSQL_USER: homestead
-#  MYSQL_PASSWORD: secret
-#  DB_HOST: mysql
-#  DB_USERNAME: root
+
+
+
+variables:
+  MYSQL_ROOT_PASSWORD: secret
+  MYSQL_DATABASE: homestead
+  MYSQL_USER: homestead
+  MYSQL_PASSWORD: secret
 
 stages:
   - test
@@ -62,10 +59,12 @@ test:
     - composer install
     - configure-laravel
     - start-nginx-ci-project
-    - cp .env.test .env
+    - cp .env.example .env
     - php artisan key:generate
     - php artisan migrate
     - vendor/bin/pest
+
+
 
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJobUsersTable extends Migration
+class CreateApplicantJobTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateJobUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_applicants', function (Blueprint $table) {
+        Schema::create('applicant_job', function (Blueprint $table) {
             $table->unsignedBigInteger('job_id');
             $table->unsignedBigInteger('applicant_id');
+
+            $table->unique(['job_id', 'applicant_id']);
 
 
             $table->foreign('job_id')
@@ -39,6 +41,6 @@ class CreateJobUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_applicants');
+        Schema::dropIfExists('applicant_job');
     }
 }

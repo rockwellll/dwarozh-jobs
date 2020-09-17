@@ -16,14 +16,14 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('business_user_id');
             $table->string('type');
             $table->text('content');
             $table->timestamps();
 
 
 
-            $table->foreign('user_id')
+            $table->foreign('business_user_id')
             ->references('id')
             ->on('business_users')
             ->onDelete('cascade');
