@@ -13,8 +13,7 @@ return [
         'duhok' => 'Duhok',
         'kerkuk' => 'Kerkuk'
     ],
-    'looking for people' => 'looking for people',
-    'browse more job' => 'browse more job',
+    'looking for people' => 'Looking for people',
+    'browse more job' => 'Browse more jobs',
     'Publish a job' => 'Publish a job',
-
 ];
