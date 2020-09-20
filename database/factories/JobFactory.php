@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\BusinessUser;
 use App\Job;
+use App\JobType;
 use App\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -31,9 +32,9 @@ class JobFactory extends Factory
 
         return [
             'content' => $this->faker->paragraph,
-            'type' => $this->faker->text,
             'title' => $this->faker->title,
-            'business_user_id' => $b
+            'business_user_id' => $b,
+            'job_type_id' => JobType::factory()->create()
         ];
     }
 }
