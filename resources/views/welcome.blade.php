@@ -1,13 +1,16 @@
 @extends('layouts.app')
-@section('title')
 
+@section('title')
     {{__('page-title.home')}}
+@endsection
+
+@section('description')
 
 @endsection
 
 @section("content")
     <div class="w-full flex flex-col items-center justify-center">
-        <div class="w-full md:w-8/12">
+        <div class="w-full md:w-11/12 xl:w-8/12 flex-col justify-center items-center">
             <form action="" class="flex flex-col md:flex-row justify-around items-center bg-white rounded-md">
                 <div class="flex flex-col md:flex-row w-full md:w-8/12 px-3 md:px-0">
                     <div class=" m-2 w-full">
@@ -24,19 +27,21 @@
                 </button>
             </form>
 
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 mt-2">
-                @foreach(range(1, 9) as $l)
-                    <div class="flex flex-col items-center bg-white  p-20 m-2 shadow rounded-md shadow-md">
-                    <span class=" text-3xl text-gray-700 font-semibold">
+           <div class="flex flex-col justify-center items-center w-full">
+               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 mt-2 w-10/12 md:w-full content-center">
+                   @foreach(range(1, 9) as $l)
+                       <div class="flex flex-col justify-center items-center bg-white  p-20 m-2 shadow rounded-md shadow-md self-center">
+                    <span class=" text-2xl xl:text-3xl text-gray-700 font-semibold">
                         {{__('home-page.Job Type')}}
                     </span>
-                        <span class=" text-sm text-gray-900 mt-2">
+                           <span class=" text-sm text-gray-900 mt-2">
                         {{__('home-page.Number')}}
                     </span>
 
-                    </div>
-                @endforeach
-            </div>
+                       </div>
+                   @endforeach
+               </div>
+           </div>
 
 
             <div class="w-full flex justify-between px-4 text-sm">
