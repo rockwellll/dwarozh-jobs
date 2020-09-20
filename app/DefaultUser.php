@@ -2,10 +2,18 @@
 
 namespace App;
 
+use App\Concerns\DelegateProperties;
 use Illuminate\Database\Eloquent\Model;
 
 class DefaultUser extends Model
 {
+    use DelegateProperties;
+
+    public $readers= [
+        'name' => 'user->name',
+        'email' => 'user->email',
+    ];
+
     public $timestamps = false;
 
     public function user() {
