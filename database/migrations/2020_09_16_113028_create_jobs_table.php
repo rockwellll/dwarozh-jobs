@@ -17,16 +17,20 @@ class CreateJobsTable extends Migration
             $table->id();
             $table->string('title');
             $table->unsignedBigInteger('business_user_id');
-            $table->string('type');
+            $table->unsignedBigInteger('job_type_id');
             $table->text('content');
             $table->timestamps();
 
 
-
             $table->foreign('business_user_id')
-            ->references('id')
-            ->on('business_users')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('business_users')
+                ->onDelete('cascade');
+
+            $table->foreign('job_type_id')
+                ->references('id')
+                ->on('job_types')
+                ->onDelete('cascade');
         });
     }
 

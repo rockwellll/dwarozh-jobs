@@ -13,11 +13,16 @@ class Job extends Model
 
     public function owner()
     {
-        return $this->belongsTo(BusinessUser::class);
+        return $this->belongsTo(BusinessUser::class, 'business_user_id');
     }
 
     public function applicants()
     {
         return $this->belongsToMany(DefaultUser::class, 'applicant_job', 'applicant_id', 'job_id');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(JobType::class, 'job_type_id');
     }
 }
