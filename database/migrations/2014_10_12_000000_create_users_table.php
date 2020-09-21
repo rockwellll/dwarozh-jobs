@@ -26,7 +26,6 @@ class CreateUsersTable extends Migration
 
             $table->unsignedBigInteger('userable_id')->nullable();
             $table->string('userable_type')->nullable();
-            $table->string('image')->nullable();
 
             $table->index('email');
         });

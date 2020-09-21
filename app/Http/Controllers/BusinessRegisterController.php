@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BusinessUser;
+use App\Image;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class BusinessRegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'location' => ['required', 'string'],
             'mobileNumber' => ['required', 'string'],
+            'attachment' => 'required|mimetypes:image/*'
         ]);
     }
 
@@ -35,6 +37,16 @@ class BusinessRegisterController extends Controller
 
         $account = BusinessUser::create();
         $account->user()->save($user);
+
+        $name = $data['attachment']->getClientOriginalName();
+        $path = time() . '_' . $data['attachment']->storeAs('uploads', $name, 'public');
+        $image = new Image([
+            'name' => $name,
+            'path' => '/storage/' . $path,
+            'user_id' => $user->id
+        ]);
+
+        $user->image()->save($image);
         return $user;
     }
 

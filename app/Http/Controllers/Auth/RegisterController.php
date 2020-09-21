@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'firstName' => ['required', 'string'],
             'lastName' => ['required', 'string'],
             'location' => ['required', 'string'],
+            'attachment' => 'required|mimetypes:application/pdf,application/msword'
         ]);
     }
 

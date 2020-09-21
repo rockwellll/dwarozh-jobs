@@ -43,7 +43,6 @@
                </div>
            </div>
 
-
             <div class="w-full flex justify-between px-4 text-sm">
                 <div class="flex flex-row items-center">
                   <span>

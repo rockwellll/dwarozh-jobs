@@ -10,8 +10,9 @@
 
 @section('content')
     <div class="w-full flex flex-col items-center justify-center centered">
-
+@error('attachment') <h1>{{$message}}</h1> @enderror
         <form
+            enctype="multipart/form-data"
             class="w-full md:w-4/5 lg:w-2/3 text-accent text-sm md:text-base bg-white rounded-md p-1  md:p-5  shadow-lg"
             action="/{{App::getLocale()}}/register"
             method="POST">
