@@ -51,13 +51,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'firstName' => ['required', 'string'],
             'lastName' => ['required', 'string'],
             'location' => ['required', 'string'],
-            'attachment' => 'required|mimetypes:application/pdf,application/msword'
+            'attachment' => 'mimetypes:application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         ]);
     }
 
@@ -76,7 +77,16 @@ class RegisterController extends Controller
             'location' => $data['location'] ?? "",
         ]);
 
-        $account = DefaultUser::create();
+        $account = new DefaultUser();
+
+        if (key_exists('attachment', $data)) {
+            $name = $data['attachment']->getClientOriginalName();
+            $path = time() . '_' . $data['attachment']->storeAs('resumes', $name, 'public');
+
+            $account->attachment = $path;
+        }
+
+        $account->save();
         $account->user()->save($user);
 
         return $user;
