@@ -2,10 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\BusinessUser;
-use App\Job;
-use App\User;
-use Illuminate\Support\Facades\Hash;
+use App\Models\BusinessUser;
+use App\Models\Job;
 use function PHPUnit\Framework\assertEquals;
 
 beforeEach(function () {

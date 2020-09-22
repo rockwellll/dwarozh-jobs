@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\BusinessUser;
-use App\Image;
+use App\Models\BusinessUser;
+use App\Models\Image;
 use App\Providers\RouteServiceProvider;
-use App\User;
-use Illuminate\Http\Request;
+use App\Models\User;
+
 
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;

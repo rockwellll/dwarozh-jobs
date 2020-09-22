@@ -2,7 +2,7 @@
 
 use Laravel\Dusk\Browser;
 
-use App\User;
+use App\Models\User;
 
 beforeEach(function () {
     User::factory()->create([

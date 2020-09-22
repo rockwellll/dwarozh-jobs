@@ -2,10 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
-
 it('creates user account and redirects back to home page', function () {
    $this->get('/en/register')
         ->assertStatus(200);

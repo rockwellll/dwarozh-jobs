@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\BusinessUser;
-use App\Job;
-use App\JobType;
-use App\User;
+use App\Models\BusinessUser;
+use App\Models\Job;
+use App\Models\JobType;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 

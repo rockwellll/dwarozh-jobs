@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Job;
+use App\Models\Job;
 use function PHPUnit\Framework\assertNotNull;
 
 it('a job that is created has a job type and belongs to a user', function () {

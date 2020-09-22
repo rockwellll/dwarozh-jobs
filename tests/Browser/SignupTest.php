@@ -2,7 +2,7 @@
 
 use Laravel\Dusk\Browser;
 
-use App\User;
+use App\Models\User;
 
 beforeEach(function () {
     User::factory()->create([
@@ -76,10 +76,8 @@ it('notifies the user that the passwords are not the same', function () {
 it('allows the user to switch between business and default user registration', function () {
     $this->browse(function (Browser $browser) {
         $browser->visit('/en/register')
-            ->waitForLink("Create business account")
             ->clickLink('Create business account')
             ->assertPathIs('/en/register/business')
-            ->waitForLink("Create account")
             ->clickLink('Create account')
             ->assertPathIs('/en/register');
     });
