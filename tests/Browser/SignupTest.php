@@ -37,8 +37,9 @@ it('allows the user to create account if validation was successful, and redirect
             ->type('password', '12345678')
             ->type('password_confirmation', '12345678')
             ->select('location', 'erbil')
+            ->attach('attachment', __DIR__.'/attachments/ahmed-cv.pdf')
             ->press('Create Account')
-            ->assertPathIs('/home');
+            ->assertPathIs('/en');
     });
 });
 
@@ -96,6 +97,6 @@ it('allows the business user to create account and redirect back to home page', 
             ->type('password_confirmation', '12345678')
             ->select('location', 'duhok')
             ->press('Create Account')
-            ->assertPathIs('/home');
+            ->assertPathIs('/en');
     });
 });

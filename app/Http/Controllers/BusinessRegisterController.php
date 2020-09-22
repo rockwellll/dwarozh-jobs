@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\BusinessUser;
+use App\Image;
+use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -14,6 +16,8 @@ class BusinessRegisterController extends Controller
 {
     use RegistersUsers;
 
+    protected $redirectTo = RouteServiceProvider::HOME;
+
     protected function validator(array $data) {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
@@ -21,6 +25,7 @@ class BusinessRegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'location' => ['required', 'string'],
             'mobileNumber' => ['required', 'string'],
+            'attachment' => 'mimetypes:image/*'
         ]);
     }
 
@@ -35,6 +40,19 @@ class BusinessRegisterController extends Controller
 
         $account = BusinessUser::create();
         $account->user()->save($user);
+
+
+        if (key_exists('attachment', $data)) {
+            $name = $data['attachment']->getClientOriginalName();
+            $path = time() . '_' . $data['attachment']->storeAs('uploads', $name, 'public');
+            $image = new Image([
+                'name' => $name,
+                'path' => '/storage/' . $path,
+                'user_id' => $user->id
+            ]);
+
+            $user->image()->save($image);
+        }
         return $user;
     }
 

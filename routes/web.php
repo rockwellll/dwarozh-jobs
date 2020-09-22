@@ -17,6 +17,10 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
 });
 
+Route::get('/', function () {
+    return redirect('/en');
+});
+
 
 
 

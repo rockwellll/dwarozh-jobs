@@ -23,7 +23,7 @@ it('logs the user in when the credintial are correct', function () {
             ->type('email', 'test@test.com')
             ->type('password', 'password')
             ->press('Login')
-            ->assertPathIs('/home');
+            ->assertPathIs('/en');
     });
 });
 

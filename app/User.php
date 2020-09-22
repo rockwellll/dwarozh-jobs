@@ -16,4 +16,8 @@ class User extends Authenticatable
     public function userable() {
         return $this->morphTo();
     }
+
+    public function image() {
+        return $this->hasOne(Image::class, 'user_id', 'id');
+    }
 }

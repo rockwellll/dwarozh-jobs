@@ -14,6 +14,7 @@
     <div class="w-full flex flex-col items-center justify-center centered">
 
         <form
+            enctype="multipart/form-data"
             class="w-full md:w-4/5 lg:w-2/3 text-accent text-sm md:text-base bg-white rounded-md p-1  md:p-5  shadow-lg"
             action="{{route('business-register', ['locale' => App::getLocale()])}}"
             method="POST">
@@ -129,11 +130,25 @@
             <div class="flex w-full justify-around my-4 flex-col md:flex-row items-center">
                 <div class="w-2/5"></div>
                 <div class="flex w-4/5 md:w-2/5 flex-col">
-                    @include('partials.file', [
-                         'label' => __('auth.company_image'),
-                         'buttonLabel' => __('auth.choose_image'),
-                         'emptyStateText' => __('auth.no_image_selected')
-                    ])
+
+                    <span class="">
+                        {{ __('auth.company_image')}}
+                    </span>
+
+                    <div
+                        class="flex items-center bg-body rounded-md border-2 border-gray-400 @error('attachment') border-red-500 @enderror">
+                        <label for="file" class="file-label p-2 bg-body">
+                            {{__('auth.choose_image')}}
+                        </label>
+                        <span id="chosenFile" class="text-gray-500">
+                         {{__('auth.no_image_selected')}}
+                         </span>
+                    </div>
+
+                    <input type="file" name="attachment" id="file" style="display: none;" accept="image/*">
+                    @error('attachment')
+                    <span class="text-red-400">{{$message}}</span>
+                    @enderror
                 </div>
             </div>
 
