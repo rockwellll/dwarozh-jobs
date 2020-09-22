@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'وشه‌ی نهێنی یان ئیمه‌یڵ هه‌ڵه‌یه‌.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     'login_to_account' => "چوونه‌ژووره‌وه‌ بۆ ناو هه‌ژماره‌که‌ت",
