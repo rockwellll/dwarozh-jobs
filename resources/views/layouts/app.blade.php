@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -40,18 +41,25 @@
         <nav class="w-full flex justify-between items py-5 text-center">
             <h1>Dwarozh Jobs</h1>
             <ul class="flex">
+                @if(Request::path() == 'en')
+                    <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
+                        <a href="">Login</a>
+                    </li>
+                    <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
+                        <form method="POST" action="{{route('logout')}}">
+                            @csrf
+                            <button>Logout</button>
+                        </form>
+                    </li>
+                @elseif(Request::path() == 'logout')
+                @elseif(Request::path() == 'login')
+                @else
                 <li class="px-2 py-1 mx-2">
                     <a href="">Home</a>
                 </li>
-                <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
-                    <a href="">Login</a>
-                </li>
-                <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
-                    <form method="POST" action="{{route('logout')}}">
-                        @csrf
-                        <button>Logout</button>
-                    </form>
-                </li>
+
+                @endif
+
             </ul>
         </nav>
     </header>
