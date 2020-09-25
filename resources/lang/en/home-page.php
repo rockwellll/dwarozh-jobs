@@ -16,4 +16,7 @@ return [
     'looking for people' => 'Looking for people',
     'browse more job' => 'Browse more jobs',
     'Publish a job' => 'Publish a job',
+    'job_types' => [
+
+    ]
 ];

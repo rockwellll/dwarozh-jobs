@@ -27,21 +27,22 @@
                 </button>
             </form>
 
-           <div class="flex flex-col justify-center items-center w-full">
-               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 mt-2 w-10/12 md:w-full content-center">
-                   @foreach(range(1, 9) as $l)
-                       <div class="flex flex-col justify-center items-center bg-white  p-20 m-2 shadow rounded-md shadow-md self-center">
-                    <span class=" text-2xl xl:text-3xl text-gray-700 font-semibold">
-                        {{__('home-page.Job Type')}}
-                    </span>
-                           <span class=" text-sm text-gray-900 mt-2">
-                        {{__('home-page.Number')}}
-                    </span>
+            <div class="flex flex-col justify-center items-center w-full">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 mt-2 w-10/12 md:w-full content-center">
+                    @foreach($jobTypes as $type)
+                        <div
+                            class="flex flex-col justify-center items-center bg-white  p-20 m-2 shadow rounded-md shadow-md self-center">
+                            <header class=" text-2xl xl:text-3xl text-gray-700 font-semibold">
+                                {{$type->name}}
+                            </header>
+                            <em class=" text-sm text-gray-900 mt-2">
+                                {{__('home-page.Number')}}
+                            </em>
 
-                       </div>
-                   @endforeach
-               </div>
-           </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
 
             <div class="w-full flex justify-between px-4 text-sm">
                 <div class="flex flex-row items-center">

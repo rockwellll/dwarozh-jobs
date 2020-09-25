@@ -15,7 +15,7 @@ class JobTypeSeeder extends Seeder
     public function run()
     {
         $jobTypes = [
-            'accounting' => '',
+            'accounting' => 'Accounting and Auditing Jobs',
             'architecture' => 'Architecture Jobs',
             'design' => 'Design, Creative, and Arts Jobs',
             'human_resources' => 'Human Resources and Recruitment Jobs',
