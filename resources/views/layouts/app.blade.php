@@ -19,6 +19,7 @@
 
 @stack('scripts')
 <!-- Fonts -->
+
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -34,6 +35,7 @@
             background: #F8F8F8;
         }
     </style>
+    <livewire:styles />
 </head>
 <body>
 <header class="w-full px-10 bg-accent" style="color: #F8F8F8">
