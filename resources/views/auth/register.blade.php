@@ -145,7 +145,7 @@
                     <span class="text-red-400">{{$message}}</span>
                     @enderror
 
-                    <about-resume-modal></about-resume-modal>
+
                 </div>
             </div>
 
