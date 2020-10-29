@@ -26,7 +26,7 @@ class JobTypeSeeder extends Seeder
             'reception' => 'Reception',
             'oil_engineer' => 'Oil Engineer',
             'sales' => 'Sales',
-            'security' => 'Security'
+            'security' => 'Security',
         ];
 
         // add every new job type in the jobTypes array
