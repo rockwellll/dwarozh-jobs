@@ -17,6 +17,17 @@ return [
     'browse more job' => 'Browse more jobs',
     'Publish a job' => 'Publish a job',
     'job_types' => [
-
+        'accounting' => 'Accounting and Auditing Jobs',
+        'architecture' => 'Architecture Jobs',
+        'design' => 'Design, Creative, and Arts Jobs',
+        'human_resources' => 'Human Resources and Recruitment Jobs',
+        'civil_engineer' => 'Civil Engineer',
+        'education' => 'Education',
+        'marketing' => 'Marketing',
+        'software_engineer' => 'Software Engineer',
+        'reception' => 'Reception',
+        'oil_engineer' => 'Oil Engineer',
+        'sales' => 'Sales',
+        'security' => 'Security',
     ]
 ];

@@ -33,9 +33,11 @@
                     @foreach($jobTypes as $type )
                         @if( $loop->index <9 )
                             <div
-                                class="flex flex-col justify-center items-center bg-white  p-20 m-2 shadow rounded-md shadow-md self-center">
-                                <header class=" text-2xl xl:text-3xl text-gray-700 font-semibold">
-                                    {{$type->name}}
+                                class="flex flex-col justify-center items-center bg-white h-48 p-4 m-2 shadow rounded-md shadow-md self-center">
+                                <header class="w-full text-center text-2xl xl:text-3xl text-gray-700 font-semibold">
+                                    <h1>
+                                        {{__('home-page.job_types')[$type->name]}}
+                                    </h1>
                                 </header>
                                 <em class=" text-sm text-gray-900 mt-2">
                                     {{__('home-page.Number')}}
@@ -52,9 +54,11 @@
                     @foreach($jobTypes as $type )
 
                             <div
-                                class="flex flex-col justify-center items-center bg-white  p-20 m-2 shadow rounded-md shadow-md self-center">
-                                <header class=" text-2xl xl:text-3xl text-gray-700 font-semibold">
-                                    {{$type->name}}
+                                class="flex flex-col justify-center items-center bg-white  h-48 p-4 m-2 shadow rounded-md shadow-md self-center">
+                                <header class="w-full text-center text-2xl xl:text-3xl text-gray-700 font-semibold">
+                                   <h1>
+                                       {{__('home-page.job_types')[$type->name]}}
+                                   </h1>
                                 </header>
                                 <em class=" text-sm text-gray-900 mt-2">
                                     {{__('home-page.Number')}}

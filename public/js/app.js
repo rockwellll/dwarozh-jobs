@@ -159,8 +159,8 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\amanj\PhpstormProjects\dwarozh-jobs\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\amanj\PhpstormProjects\dwarozh-jobs\resources\css\main.css */"./resources/css/main.css");
+__webpack_require__(/*! D:\dwarozh\dwarozh-jobs\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\dwarozh\dwarozh-jobs\resources\css\main.css */"./resources/css/main.css");
 
 
 /***/ })

@@ -20,7 +20,7 @@ class DefaultUser extends Model
         return $this->morphOne(User::class, 'userable');
     }
 
-    public function jobs() {
+    public function applications() {
         return $this->belongsToMany(Job::class, 'applicant_job', 'job_id', 'applicant_id');
     }
 
