@@ -22916,12 +22916,12 @@ video {
   border-color: #159195;
 }
 
-input:focus {
+input:focus, trix-editor:focus  {
   border-color: #159195;
   background-color: white;
 }
 
-input, select  {
+input, select, trix-editor {
   padding: 0.5rem;
   width: 100%;
   outline: 0;
@@ -22933,6 +22933,26 @@ input, select  {
   color: rgba(33, 33, 33, .85);
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
+}
+
+trix-editor {
+  height: 200px;
+}
+
+.trix-container ol {
+  list-style-type: decimal;
+}
+
+.trix-container *::before {
+  content: unset;
+}
+
+.trix-container ul {
+  list-style-type: circle;
+}
+
+.trix-button::before {
+  content: "";
 }
 
 input[type="checkbox"] {
