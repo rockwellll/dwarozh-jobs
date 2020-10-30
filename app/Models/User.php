@@ -20,4 +20,8 @@ class User extends Authenticatable
     public function image() {
         return $this->hasOne(Image::class, 'user_id', 'id');
     }
+
+    public function isBusinessUser() {
+        return $this->userable_type == "App\Models\BusinessUser";
+    }
 }
