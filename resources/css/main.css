@@ -92,14 +92,33 @@
     border-color: #159195;
 }
 
-input:focus {
+input:focus, trix-editor:focus  {
     border-color: #159195;
     background-color: white;
-
 }
 
-input, select  {
+input, select, trix-editor {
     @apply p-2 w-full outline-none border-gray-400 border-2 rounded-lg text-accent-800 my-1;
+}
+
+trix-editor {
+    height: 200px;
+}
+
+.trix-container ol {
+    list-style-type: decimal;
+}
+
+.trix-container *::before {
+    content: unset;
+}
+
+.trix-container ul {
+    list-style-type: circle;
+}
+
+.trix-button::before {
+    content: "";
 }
 
 input[type="checkbox"] {

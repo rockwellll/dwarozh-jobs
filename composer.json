@@ -15,7 +15,8 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.2",
-        "livewire/livewire": "^2.2"
+        "livewire/livewire": "^2.2",
+        "te7a-houdini/laravel-trix": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
