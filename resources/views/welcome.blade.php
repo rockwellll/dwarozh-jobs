@@ -10,6 +10,13 @@
 
 @section("content")
     <div class="w-full flex flex-col items-center justify-center" x-data="{tab:false}">
+        @if (session('notice'))
+            <div class="text-red-400">
+                <h1>
+                    {{ session('notice') }}
+                </h1>
+            </div>
+        @endif
 
         <div class="w-full md:w-11/12 xl:w-8/12 flex-col justify-center items-center">
             <form action="" class="flex flex-col md:flex-row justify-around items-center bg-white rounded-md">
@@ -73,15 +80,17 @@
             </div>
 
             <div class="w-full flex justify-between px-4 text-sm">
-                <div class="flex flex-row items-center">
+                @can('publish-jobs')
+                    <div class="flex flex-row items-center">
                   <span>
                     {{__('home-page.looking for people')}}
                   </span>
-                    <a class="link padded-underline mx-0 mt-2 sm:mx-0 md:mx-2: md:mt-0  lg:mx-2"
-                       href="{{route('jobs.create', ['locale' => app()->getLocale()])}}">
-                        {{__('home-page.Publish a job')}}
-                    </a>
-                </div>
+                        <a class="link padded-underline mx-0 mt-2 sm:mx-0 md:mx-2: md:mt-0  lg:mx-2"
+                           href="{{route('jobs.create', ['locale' => app()->getLocale()])}}">
+                            {{__('home-page.Publish a job')}}
+                        </a>
+                    </div>
+                @endcan
 
 
                 <button x-show="!tab" @click="tab = !tab"
