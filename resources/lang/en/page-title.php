@@ -5,5 +5,8 @@
 return [
     'register' => 'Register',
     'login' => 'Login',
-    'home' => 'home'
+    'home' => 'home',
+    'jobs' => [
+        'new' => 'Publish a new job'
+    ]
 ];
