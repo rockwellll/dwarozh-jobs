@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @trixassets
+    @livewireStyles
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -17,7 +18,7 @@
     <meta name="description" content="@yield('description')">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
 @stack('scripts')
 <!-- Fonts -->
@@ -43,7 +44,9 @@
 <body>
 <header class="w-full px-10 bg-accent" style="color: #F8F8F8">
     <nav class="w-full flex justify-between items py-5 text-center text-md">
-        <h1>Dwarozh Jobs</h1>
+        <h1>
+            <a href="/">Dwarozh Jobs</a>
+        </h1>
         <ul class="flex">
 
 
@@ -88,6 +91,8 @@
     </div>
 </section>
 
+
+@livewireScripts
 <script>
     window._locale = '{{ app()->getLocale() }}';
     window._translations = {!! cache('translations') !!};

@@ -18,6 +18,7 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
 });
 
 Route::get('/', function () {
+
     return redirect('/en');
 });
 
