@@ -29,5 +29,6 @@ return [
         'oil_engineer' => 'Oil Engineer',
         'sales' => 'Sales',
         'security' => 'Security',
-    ]
+    ],
+    'jobs' => 'Jobs'
 ];

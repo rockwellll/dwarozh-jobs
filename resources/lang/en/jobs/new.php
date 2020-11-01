@@ -6,5 +6,9 @@ return [
     'company_location' => 'Company HQ',
     'location' => 'Location',
     'description' => 'Job Description',
-    'about_company' => 'About Your Company'
+    'about_company' => 'About Your Company',
+    'job_type' => 'Job Type',
+    'deadline' => 'Deadline to apply',
+    'submit' => 'Publish Job',
+    'job_posted' => 'Job Published successfully'
 ];
