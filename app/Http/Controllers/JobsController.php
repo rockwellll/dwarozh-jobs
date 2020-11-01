@@ -2,18 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use App\Models\JobType;
 use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
-    public function create() {
+    public function create()
+    {
         return view('jobs.new', [
             'categories' => JobType::all()
         ]);
     }
 
-    public function store() {
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'title' => 'required',
+            'deadline' => 'required',
+            'job-trixFields.content' => 'required',
+            'category' => 'required',
+            'company-location' => 'required'
+        ]);
 
+        auth()->user()->userable->jobs()->save(new Job([
+            'title' => $data['title'],
+            'job_type_id' => JobType::where('name', '=', $data['category'])->first()->id,
+            'content' => $data['job-trixFields']['content'],
+            'deadline' => $data['deadline']
+        ]));
+
+        return redirect()
+            ->route('jobs.create', ['locale' => app()->getLocale()])
+            ->with('notice', __('jobs/new.job_posted'));
     }
 }

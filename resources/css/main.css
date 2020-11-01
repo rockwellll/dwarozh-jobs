@@ -185,3 +185,11 @@ button.primary-button:hover {
         width: 100%;
     }
 }
+
+.accent-button{
+    @apply bg-accent
+}
+
+.accent-button:hover {
+    @apply bg-accent-850
+}

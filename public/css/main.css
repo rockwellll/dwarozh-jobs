@@ -23025,6 +23025,14 @@ button.primary-button:hover {
   }
 }
 
+.accent-button{
+  background: rgba(33, 33, 33, .95)
+}
+
+.accent-button:hover {
+  background: rgba(33, 33, 33, .85)
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
