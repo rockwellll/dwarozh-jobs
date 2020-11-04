@@ -34,7 +34,8 @@ class JobFactory extends Factory
             'content' => $this->faker->paragraph,
             'title' => $this->faker->title,
             'business_user_id' => $b,
-            'job_type_id' => JobType::factory()->create()
+            'job_type_id' => JobType::first(),
+            'deadline' => now()
         ];
     }
 }

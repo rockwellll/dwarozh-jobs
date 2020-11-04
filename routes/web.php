@@ -35,6 +35,11 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
     Route::get('/register/business', 'BusinessRegisterController@index')->name('business-register');
     Route::post('/register/business', 'BusinessRegisterController@register')->name('business-register');
     Route::post('register', 'Auth\RegisterController@register');
+
+    Route::name('jobs.')->middleware('isBusinessUser')->group(function () {
+        Route::get('/jobs/new', 'JobsController@create')->name('create');
+        Route::post('/jobs/store', 'JobsController@store')->name('store');
+    });
 });
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

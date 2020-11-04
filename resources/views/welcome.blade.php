@@ -35,9 +35,10 @@
                             <div
                                 class="flex flex-col justify-center items-center bg-white  p-20 m-2 shadow rounded-md shadow-md self-center">
                                 <header class=" text-2xl xl:text-3xl text-gray-700 font-semibold">
-                                    {{$type->name}}
+                                    {{__('home-page.job_types')[$type->name]}}
                                 </header>
                                 <em class=" text-sm text-gray-900 mt-2">
+                                    <span class="text-2xl">{{$type->jobs()->count()}}</span>
                                     {{__('home-page.Number')}}
                                 </em>
 
@@ -54,9 +55,10 @@
                             <div
                                 class="flex flex-col justify-center items-center bg-white  p-20 m-2 shadow rounded-md shadow-md self-center">
                                 <header class=" text-2xl xl:text-3xl text-gray-700 font-semibold">
-                                    {{$type->name}}
+                                    {{__('home-page.job_types')[$type->name]}}
                                 </header>
                                 <em class=" text-sm text-gray-900 mt-2">
+                                    <span class="text-2xl">{{$type->jobs()->count()}}</span>
                                     {{__('home-page.Number')}}
                                 </em>
 
