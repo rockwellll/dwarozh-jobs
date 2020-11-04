@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
+    public function index() {
+        return view('jobs.index', [
+            'jobs' => Job::all()
+        ]);
+    }
+
     public function create()
     {
         return view('jobs.new', [
