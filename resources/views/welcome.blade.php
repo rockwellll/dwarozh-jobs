@@ -12,30 +12,18 @@
     <div class="w-full flex flex-col items-center justify-center"  x-data="{tab:false}" >
 
         <div class="w-full md:w-11/12 xl:w-8/12 flex-col justify-center items-center">
-            <form action="" class="flex flex-col md:flex-row justify-around items-center bg-white rounded-md">
-                <div class="flex flex-col md:flex-row w-full md:w-8/12 px-3 md:px-0">
-                    <div class=" m-2 w-full">
-                        <input class="bg-body text-sm" type="text" placeholder="{{__('home-page.Search for jobs')}}">
-                    </div>
-                    <div class=" m-2 w-full">
-                        @include('partials.locations-select-input')
-                    </div>
-                </div>
-
-                <button class="px-3 py-2 my-1 primary-button focus:outline-none focus:shadow-outline"
-                        style="width: 10rem">
-                    {{__('home-page.Search')}}
-                </button>
-            </form>
+            @include('partials.job-search')
 
             <div class="flex flex-col justify-center items-center w-full" x-show="!tab">
                 <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-9 mt-2 w-10/12 md:w-full content-center">
                     @foreach($jobTypes as $type )
                         @if( $loop->index <9 )
                             <div
-                                class="flex flex-col justify-center items-center bg-white  p-20 m-2 shadow rounded-md shadow-md self-center">
-                                <header class=" text-2xl xl:text-3xl text-gray-700 font-semibold">
-                                    {{__('home-page.job_types')[$type->name]}}
+                                class="flex flex-col justify-center items-center bg-white  h-48 p-3 m-3 shadow rounded-md shadow-md self-center">
+                                <header class="text-xl xl:text-3xl text-gray-700 font-semibold text-center">
+                                    <h1>
+                                        {{__('home-page.job_types')[$type->name]}}
+                                    </h1>
                                 </header>
                                 <em class=" text-sm text-gray-900 mt-2">
                                     <span class="text-2xl">{{$type->jobs()->count()}}</span>
@@ -53,9 +41,11 @@
                     @foreach($jobTypes as $type )
 
                             <div
-                                class="flex flex-col justify-center items-center bg-white  p-20 m-2 shadow rounded-md shadow-md self-center">
-                                <header class=" text-2xl xl:text-3xl text-gray-700 font-semibold">
-                                    {{__('home-page.job_types')[$type->name]}}
+                                class="flex flex-col justify-center items-center bg-white  h-48 p-4 m-3 shadow rounded-md shadow-md self-center">
+                                <header class=" text-2xl xl:text-3xl text-gray-700 font-semibold justify-center">
+                                   <h1>
+                                       {{__('home-page.job_types')[$type->name]}}
+                                   </h1>
                                 </header>
                                 <em class=" text-sm text-gray-900 mt-2">
                                     <span class="text-2xl">{{$type->jobs()->count()}}</span>
@@ -73,7 +63,8 @@
                   <span>
                     {{__('home-page.looking for people')}}
                   </span>
-                    <a class="link padded-underline mx-0 mt-2 sm:mx-0 md:mx-2: md:mt-0  lg:mx-2" href="">
+                    <a class="link padded-underline mx-0 mt-2 sm:mx-0 md:mx-2: md:mt-0  lg:mx-2"
+                       href="{{ route('jobs.create', ['locale' => app()->getLocale()]) }}">
                         {{__('home-page.Publish a job')}}
                     </a>
                 </div>
