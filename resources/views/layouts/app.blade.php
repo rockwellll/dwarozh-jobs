@@ -83,7 +83,7 @@
         </ul>
     </nav>
 </header>
-<section class="w-full px-3 md:px-10">
+<section class="w-full px-3 md:px-5 lg:px-10">
     <div id="app">
         <main class="py-4">
             @yield('content')

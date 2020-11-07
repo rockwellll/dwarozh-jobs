@@ -78,6 +78,12 @@
                         </label>
 
                         @include('partials.locations-select-input')
+
+                        @error('location')
+                        <small class="text-red-500">
+                            {{$message}}
+                        </small>
+                        @enderror
                     </div>
 
                     <div class="w-full md:w-5/12">
