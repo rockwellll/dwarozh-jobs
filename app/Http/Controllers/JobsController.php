@@ -11,16 +11,15 @@ class JobsController extends Controller
     public function index(Request $request)
     {
         $query = Job::query();
-        $title = $request->query('title');
-        $location = $request->query('location');
-        $category = $request->query('category');
 
         $query
-            ->when($title, function ($query, $title) {
+            ->when($request->query('title'), function ($query, $title) {
                 return $query->where('title', 'like', "%" . $title . "%");
-            })->when($location, function ($query, $location) {
+            })
+            ->when($request->query('location'), function ($query, $location) {
                 return $query->where('location', $location);
-            })->when($category, function ($query, $category) {
+            })
+            ->when($request->query('category'), function ($query, $category) {
                 $category = JobType::findByName($category)
                     ->first();
                 $query->where('job_type_id', $category->id);
