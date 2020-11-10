@@ -30,12 +30,20 @@ class JobFactory extends Factory
 
         $b->user()->save($u);
 
+        $locations = [
+            'erbil',
+            'sulaimaniya',
+            'duhok',
+            'kirkuk'
+        ];
+
         return [
             'content' => $this->faker->paragraph,
             'title' => $this->faker->title,
             'business_user_id' => $b,
             'job_type_id' => JobType::first(),
-            'deadline' => now()
+            'deadline' => now(),
+            'location' => $locations[array_rand($locations)]
         ];
     }
 }

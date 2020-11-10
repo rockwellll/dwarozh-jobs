@@ -25,7 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('welcome',[
-            'jobTypes' => JobType::paginate()
+            'jobTypes' => JobType::paginate(),
+            'categories' => JobType::all()
         ]);
     }
 }

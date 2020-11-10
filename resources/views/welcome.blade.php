@@ -22,7 +22,9 @@
                                 class="flex flex-col justify-center items-center bg-white  h-48 p-3 m-3 shadow rounded-md shadow-md self-center">
                                 <header class="text-xl xl:text-3xl text-gray-700 font-semibold text-center">
                                     <h1>
-                                        {{__('home-page.job_types')[$type->name]}}
+                                        <a href="/{{app()->getLocale()}}/jobs?category={{$type->name}}">
+                                            {{__('home-page.job_types')[$type->name]}}
+                                        </a>
                                     </h1>
                                 </header>
                                 <em class=" text-sm text-gray-900 mt-2">
