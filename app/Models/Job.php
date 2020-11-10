@@ -12,6 +12,11 @@ class Job extends Model
 
     protected $guarded = [];
 
+    protected $with = [
+      'owner',
+      'type'
+    ];
+
     public function owner()
     {
         return $this->belongsTo(BusinessUser::class, 'business_user_id');
@@ -25,5 +30,9 @@ class Job extends Model
     public function type()
     {
         return $this->belongsTo(JobType::class, 'job_type_id');
+    }
+
+    public static function whereTitleIncludes(string $title) {
+        return self::where('title', 'like', "%" . $title . "%");
     }
 }

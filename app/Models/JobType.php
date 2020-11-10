@@ -13,4 +13,8 @@ class JobType extends Model
     {
         return $this->hasMany(Job::class);
     }
+
+    public static function findByName(string $name) {
+        return self::where('name', "=", $name);
+    }
 }
