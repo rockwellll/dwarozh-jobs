@@ -8,9 +8,26 @@ use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
-    public function index() {
+    public function index(Request $request)
+    {
+        $query = Job::query();
+
+        $query
+            ->when($request->query('title'), function ($query, $title) {
+                return $query->where('title', 'like', "%" . $title . "%");
+            })
+            ->when($request->query('location'), function ($query, $location) {
+                return $query->where('location', $location);
+            })
+            ->when($request->query('category'), function ($query, $category) {
+                $category = JobType::findByName($category)
+                    ->first();
+                $query->where('job_type_id', $category->id);
+            });
+
         return view('jobs.index', [
-            'jobs' => Job::all()
+            'jobs' => $query->paginate(50),
+            'categories' => JobType::all()
         ]);
     }
 

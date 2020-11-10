@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\IsBusinessUser;
 use App\Http\Middleware\LanguageMiddleware;
+use App\Http\Middleware\RemoveEmptyQueryParams;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,6 +67,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'language' => LanguageMiddleware::class,
-        'isBusinessUser' => IsBusinessUser::class
+        'isBusinessUser' => IsBusinessUser::class,
+        'removeEmptyQueryParam' => RemoveEmptyQueryParams::class
     ];
 }

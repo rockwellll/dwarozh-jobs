@@ -21,8 +21,7 @@ Route::get('/', function () {
     return redirect('/en');
 });
 
-Route::view('job/detail','job-detail');
-
+Route::view('job/detail', 'job-detail');
 
 
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -37,12 +36,12 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
     Route::post('register', 'Auth\RegisterController@register');
 
     Route::name('jobs.')->group(function () {
-       Route::middleware(['auth', 'isBusinessUser'])->group(function () {
-           Route::get('/jobs/new', 'JobsController@create')->name('create');
-           Route::post('/jobs/store', 'JobsController@store')->name('store');
-       });
+        Route::middleware(['auth', 'isBusinessUser'])->group(function () {
+            Route::get('/jobs/new', 'JobsController@create')->name('create');
+            Route::post('/jobs/store', 'JobsController@store')->name('store');
+        });
 
-        Route::get('/jobs', 'JobsController@index')->name('index');
+        Route::middleware('removeEmptyQueryParam')->get('/jobs', 'JobsController@index')->name('index');
     });
 });
 // Password Reset Routes...
