@@ -58,6 +58,9 @@
                     </form>
                 </li>
 
+                <li class="px-2 py-1 mx-2">
+                    <a href="/">{{__('home-page.account')}}</a>
+                </li>
             @else
                 <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
                     <a href="{{route('login', ['locale' => app()->getLocale()])}}">{{__('auth.login')}}</a>
@@ -68,18 +71,9 @@
                 </li>
 
                 <li class="px-2 py-1 mx-2">
-                    <a href="">Home</a>
+                    <a href="/">{{__('page-title.home')}}</a>
                 </li>
-
             @endauth
-            {{--            @if(Request::path() == 'en')--}}
-            {{--              --}}
-            {{--            @elseif(Request::path() == 'logout')--}}
-            {{--            @elseif(Request::path() == 'login')--}}
-            {{--            @else--}}
-            {{--               --}}
-            {{--            @endif--}}
-
         </ul>
     </nav>
 </header>

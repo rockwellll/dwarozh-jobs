@@ -65,7 +65,7 @@
 }
 
 .text-accent {
-    color: #212121;
+    color: rgba(33, 33, 33, .95);
 }
 
 .text-accent-900 {
@@ -103,17 +103,19 @@ input, select, trix-editor {
 
 trix-editor {
     min-height: 200px;
+    @apply p-2;
 }
 
-.trix-container ol {
+.trix-container ol, trix-editor ul  {
     list-style-type: decimal;
+
 }
 
-.trix-container *::before {
+.trix-container *::before, trix-editor *::before  {
     content: unset;
 }
 
-.trix-container ul {
+.trix-container ul, trix-editor ul  {
     list-style-type: circle;
 }
 
@@ -157,7 +159,7 @@ label.file-label:hover {
     color: #137578;
 }
 
-button.primary-button {
+.primary-button {
     @apply bg-primary text-white rounded-md mt-2
 }
 
@@ -192,4 +194,17 @@ button.primary-button:hover {
 
 .accent-button:hover {
     @apply bg-accent-850
+}
+
+main.job-content a {
+    @apply text-primary;
+    text-decoration-color: #212121;
+}
+
+main.job-content ul {
+    list-style-type: disc;
+}
+
+main.job-content ol {
+    list-style-type: decimal;
 }

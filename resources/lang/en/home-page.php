@@ -30,5 +30,6 @@ return [
         'sales' => 'Sales',
         'security' => 'Security',
     ],
-    'jobs' => 'Jobs'
+    'jobs' => 'Jobs',
+    'account' => 'Account'
 ];

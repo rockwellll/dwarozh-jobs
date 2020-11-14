@@ -22,7 +22,7 @@
                 class="text-gray-700 bg-white text-md  w-auto sm:w-auto md:w-3/12 lg:w-2/12 xl:w-2/12 border border-primary rounded-md mx-4">
                 <ul class="divide-y divide-teal-600 p-4">
                     @foreach($jobs as $job)
-                        <li class="my-1 w-full">
+                        <li class="my-1 w-full border-b border-primary">
                             <header>
                                 <h1>
                                     <b>
@@ -34,16 +34,21 @@
                                 </h1>
                             </header>
 
-                            <main>
-                                <b>
-                                    {{__('jobs/index.job_title')}}
-                                </b>
-                                <a class="mx-1" href="#">
-                                    {{$job->title}}
-                                </a>
+                            <main class="flex w-full items-center justify-between">
+                                <div class="flex items-center justify-between">
+                                    <b>
+                                        {{__('jobs/index.job_title')}}
+                                    </b>
+                                    <a class="mx-1" href="#">
+                                        {{$job->title}}
+                                    </a>
+
+                                </div>
+
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                             </main>
 
-                            <footer class="flex">
+                            <footer class="flex mb-2">
                                 <b>
                                     {{__('jobs/index.job_location')}}
                                 </b>
@@ -56,11 +61,13 @@
 
             <div class="  text-gray-700  bg-white w-full sm:w-full md:w-9/12 lg:w-7/12 xl:w-8/12 rounded p-4 ">
                 <div class="flex   justify-between">
-                    <div class="text-4xl text-gray-700 font-bold font font-serif text-center ">Job Title</div>
+                    <div class="text-4xl text-gray-700 font-bold font font-serif text-center ">
+                        {{$jobs[0]->title}}
+                    </div>
 
-                    <div class="flex text-base">
-                        <button class="mx-2 px-3 py-2 primary-button focus:outline-none focus:shadow-outline">Easy
-                            Apply
+                    <aside class="flex text-base">
+                        <button class="mx-2 px-3 py-2 primary-button focus:outline-none focus:shadow-outline">
+                            {{__('jobs/index.apply_to_job')}}
                         </button>
                         <button class="mx-2 pt-2 text-primary font-weight-bold ">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -70,40 +77,22 @@
                             </svg>
                         </button>
 
-                    </div>
+                    </aside>
 
                 </div>
 
-                <div class="text-xl">Company Name</div>
-                <div class="text-md">location</div>
-                <div class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                    galley of type and scrambled it to make a type specimen book. It has survived not only five
-                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-                    more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-                    Ipsum.
+                <h1 class="text-xl">
+                    {{__('jobs/index.company_name')}}
+                    {{$jobs[0]->owner->name}}
+                </h1>
+                <div class="text-md">
+                    {{__('jobs/index.job_location')}}
+                    {{__('auth.locations')[$jobs[0]->location]}}
                 </div>
-                <ul class="mt-2 list-disc list-inside">
-                    <li class="mt-1">requirement</li>
-                    <li class="mt-1">requirement</li>
-                    <li class="mt-1">requirement</li>
-                </ul>
 
-                <div class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                    galley of type and scrambled it to make a type specimen book. It has survived not only five
-                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-                    more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-                    Ipsum.
-                </div>
-                <div class="mt-3"> Contact Information</div>
-                <ul class="mt-2 list-disc list-inside">
-                    <li class="mt-1">Email</li>
-                    <li class="mt-1">Mobile</li>
-                    <li class="mt-1">Website</li>
-                </ul>
+                <main class="job-content p-4">
+                    {!! $jobs[0]->content !!}
+                </main>
             </div>
         </div>
     </div>
