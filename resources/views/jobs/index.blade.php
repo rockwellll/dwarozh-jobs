@@ -22,14 +22,14 @@
                 class="text-gray-700 bg-white text-md  w-auto sm:w-auto md:w-3/12 lg:w-2/12 xl:w-2/12 border border-primary rounded-md mx-4">
                 <ul class="divide-y divide-teal-600 p-4">
                     @foreach($jobs as $job)
-                        <li class="my-1 w-full border-b border-primary">
+                        <li class="my-1 w-full">
                             <header>
                                 <h1>
                                     <b>
                                         {{__('jobs/index.company_name')}}
                                     </b>
                                     <span class="mx-1">
-                                    {{$job->owner->name}}
+                                      {{$job->owner->name}}
                                     </span>
                                 </h1>
                             </header>
@@ -39,13 +39,23 @@
                                     <b>
                                         {{__('jobs/index.job_title')}}
                                     </b>
-                                    <a class="mx-1" href="#">
+                                    <a class="truncate" href="{{url()->full()}}&j={{$job->id}}">
                                         {{$job->title}}
                                     </a>
 
                                 </div>
 
-                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+{{--                                @if($job->is($viewedJob))--}}
+{{--                                    <div>--}}
+{{--                                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"--}}
+{{--                                             xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+{{--                                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>--}}
+{{--                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
+{{--                                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>--}}
+{{--                                        </svg>--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
                             </main>
 
                             <footer class="flex mb-2">
@@ -62,7 +72,7 @@
             <div class="  text-gray-700  bg-white w-full sm:w-full md:w-9/12 lg:w-7/12 xl:w-8/12 rounded p-4 ">
                 <div class="flex   justify-between">
                     <div class="text-4xl text-gray-700 font-bold font font-serif text-center ">
-                        {{$jobs[0]->title}}
+                        {{ $viewedJob->title}}
                     </div>
 
                     <aside class="flex text-base">
@@ -83,7 +93,7 @@
 
                 <h1 class="text-xl">
                     {{__('jobs/index.company_name')}}
-                    {{$jobs[0]->owner->name}}
+                    {{$viewedJob->owner->name}}
                 </h1>
                 <div class="text-md">
                     {{__('jobs/index.job_location')}}
@@ -91,7 +101,7 @@
                 </div>
 
                 <main class="job-content p-4">
-                    {!! $jobs[0]->content !!}
+                    {!! $viewedJob->content !!}
                 </main>
             </div>
         </div>

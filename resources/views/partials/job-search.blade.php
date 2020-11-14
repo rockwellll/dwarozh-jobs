@@ -12,6 +12,7 @@
 
                <div class="w-full md:w-6/12 md:mx-2">
                    <select  name="category" id="category" class="w-full">
+                       <option disabled selected value class="text-gray-500"> {{__('jobs/new.job_type')}} </option>
                        @foreach($categories as $category)
                            <option
                                @if(request()->query('category') == $category->name)
