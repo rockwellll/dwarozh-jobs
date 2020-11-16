@@ -3,28 +3,33 @@
 namespace App\Models;
 
 use App\Concerns\DelegateProperties;
+use App\Concerns\CanFavoriteUsers;
+use App\Concerns\CanFavoriteJobs;
 use Illuminate\Database\Eloquent\Model;
 
 class DefaultUser extends Model
 {
-    use DelegateProperties;
+    use DelegateProperties, CanFavoriteUsers, CanFavoriteJobs;
 
-    public $readers= [
+    public $readers = [
         'name' => 'user->name',
         'email' => 'user->email',
     ];
 
     public $timestamps = false;
 
-    public function user() {
+    public function user()
+    {
         return $this->morphOne(User::class, 'userable');
     }
 
-    public function applications() {
+    public function applications()
+    {
         return $this->belongsToMany(Job::class, 'applicant_job', 'job_id', 'applicant_id');
     }
 
-    public function applyToJob($job) {
+    public function applyToJob($job)
+    {
         $this->jobs()->save($job);
     }
 }
