@@ -2,7 +2,7 @@ html {
     direction: rtl;
 }
 
-nav {
+nav.main {
     direction: ltr;
 }
 
