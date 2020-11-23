@@ -15,7 +15,6 @@ class CreateDefaultUsersTable extends Migration
     {
         Schema::create('default_users', function (Blueprint $table) {
             $table->id();
-            $table->string('attachment')->nullable();
         });
     }
 
