@@ -17,7 +17,7 @@ class CreateProfileImagesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name');
-            $table->string('path');
+            $table->string('url');
 
             $table->foreign('user_id')
                 ->references('id')
