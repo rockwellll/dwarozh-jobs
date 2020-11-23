@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\DefaultUser;
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use App\Models\Attachment;
+use App\Models\DefaultUser;
 use App\Models\User;
-use App\Models\BusinessUser;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -46,7 +46,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -58,14 +58,15 @@ class RegisterController extends Controller
             'firstName' => ['required', 'string'],
             'lastName' => ['required', 'string'],
             'location' => ['required', 'string'],
-            'attachment' => 'mimetypes:application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            'attachment' => 'mimetypes:application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'mobileNumber' => ['required', 'string', 'unique:users'],
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\User
      */
     protected function create(array $data)
@@ -75,19 +76,21 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'location' => $data['location'] ?? "",
+            'mobileNumber' => $data['mobileNumber']
         ]);
 
         $account = new DefaultUser();
-
-        if (key_exists('attachment', $data)) {
-            $name = $data['attachment']->getClientOriginalName();
-            $path = time() . '_' . $data['attachment']->storeAs('resumes', $name, 'public');
-
-            $account->attachment = $path;
-        }
-
         $account->save();
         $account->user()->save($user);
+
+        $originalName = $data['attachment']->getClientOriginalName();
+        $name = $data['attachment']->hashName();
+        $path = $data['attachment']->storeAs('resumes', $name, 'public');
+
+        $attachment = new Attachment(['name' => $originalName, 'url' => $path]);
+
+        $account->user->attachment()->save($attachment);
+
 
         return $user;
     }
