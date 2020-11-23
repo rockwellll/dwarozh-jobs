@@ -92,9 +92,10 @@
                             </button>
 
                             @auth
-                                <livewire:favorite-button  :job="$viewedJob"/>
+                                @can('favorite-jobs')
+                                    <livewire:favorite-button :job="$viewedJob"/>
+                                @endcan
                             @endauth
-
                         </aside>
 
                     </div>

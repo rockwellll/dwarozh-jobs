@@ -28,5 +28,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('publish-jobs', function ($user) {
             return $user->isBusinessUser();
         });
+
+        Gate::define('favorite-jobs', function ($user) {
+            return !$user->isBusinessUser();
+        });
     }
 }
