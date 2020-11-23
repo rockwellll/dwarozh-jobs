@@ -9,7 +9,7 @@
         <nav class="w-full bg-white rounded-md shadow p-4">
             <ul class="flex justify-start">
                 <li>
-                    <a class="link text-primary no-underline" href="">
+                    <a class="link text-primary no-underline" href="{{route('jobs.index',['locale' => app()->getLocale()])}}">
                         {{__('users/default-user.jobs')}}
                     </a>
                 </li>
@@ -25,7 +25,7 @@
     <main class="bg-white rounded mt-5 p-4">
         <header>
             <h1 class="text-accent text-xl md:text-2xl">
-                What do you like to do today
+               {{__('users/default-user.what_you_like_to_do', ['name' => $user->name])}}
             </h1>
         </header>
 
@@ -97,28 +97,29 @@
 
             <section class="w-full md:w-10/12 p-3 px-5">
                 @if(empty(request()->getQueryString()))
-                    <nav class="w-full flex justify-end">
-                        <a href="" class="text-orange-600 hover:text-orange-500">Edit Information</a>
-                    </nav>
+                    @include('users.profiles.partials.show-detail')
 
-                    <ul class="text-xl">
-                        <li class="my-2">
-                            {{__('users/default-user.username', ['name' => $user->name])}}
-                        </li>
-                        <li class="my-2">
-                            {{__('users/default-user.email', ['email' => $user->email])}}
-                        </li>
-                        <li class="my-2">
-                            {{__('users/default-user.account_type')}}
-                        </li>
-                        <li class="my-2">
-                            {{__('users/default-user.location', ['location' => $user->location])}}
-                        </li>
+                @elseif(request()->query('tab') == "favorites")
+                    <header>
+                        <h1 class="text-accent">
+                            Here you can view the jobs you favorited before
+                        </h1>
+                        <footer class="flex flex-row items-center">
+                            <small class="text-primary">TIP: you can favorite jobs by clicking
+                            </small>
+                            <svg class="w-3 h-3 text-primary mx-1" fill="currentColor" viewBox="0 0 20 20"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                      clip-rule="evenodd"></path>
+                            </svg>
 
-                        <li class="my-2">
-                            {{__('users/default-user.resume')}}
-                        </li>
-                    </ul>
+
+                        </footer>
+
+                        <hr  class="h-2 w-full my-2"/>
+                    </header>
+
                 @endif
             </section>
         </main>

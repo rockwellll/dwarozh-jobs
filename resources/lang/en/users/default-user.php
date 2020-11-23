@@ -15,5 +15,7 @@ return [
     'password' => 'Password: **********',
     'account_type' => 'Account Type: ',
     'location' => 'Location: :location',
-    'resume' => 'Resume: '
+    'resume' => 'Resume: ',
+    'what_you_like_to_do' => 'What you like to do today :name?',
+    'edit_information'  => 'Edit Information'
 ];
