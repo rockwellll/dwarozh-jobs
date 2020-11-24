@@ -124,7 +124,22 @@
             </div>
 
             <div class="flex w-full justify-around my-4 flex-col md:flex-row items-center">
-                <div class="w-2/5"></div>
+                <div class="flex w-4/5 md:w-2/5 flex-col">
+                    <label class="mx-1" for="mobile">
+                        {{__('auth.mobile_number')}}
+                    </label>
+                    <input
+                        required
+                        type="text"
+                        id="mobile"
+                        name="mobileNumber"
+                        placeholder="{{__("auth.mobile_number")}}"
+                        class="bg-body @error('mobileNumber') border-red-500 @enderror">
+
+                    @error('mobileNumber')
+                    <span class="text-red-400">{{$message}}</span>
+                    @enderror
+                </div>
                 <div class="flex w-4/5 md:w-2/5 flex-col">
                     <span class="">
                         {{__('auth.resume')}}

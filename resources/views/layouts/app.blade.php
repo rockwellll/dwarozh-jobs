@@ -43,7 +43,7 @@
 </head>
 <body>
 <header class="w-full px-10 bg-accent" style="color: #F8F8F8">
-    <nav class="w-full flex justify-between items py-5 text-center text-md">
+    <nav class="main w-full flex justify-between items py-5 text-center text-md">
         <h1>
             <a href="/">Dwarozh Jobs</a>
         </h1>
@@ -59,7 +59,7 @@
                 </li>
 
                 <li class="px-2 py-1 mx-2">
-                    <a href="/">{{__('home-page.account')}}</a>
+                    <a href="{{route('users.default-user-profile', ['locale' => app()->getLocale()])}}">{{__('home-page.account')}}</a>
                 </li>
             @else
                 <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">

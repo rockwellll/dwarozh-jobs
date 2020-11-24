@@ -136,6 +136,10 @@ input[type="checkbox"] {
     color: #159195;
 }
 
+.link.no-underline {
+    text-decoration: none;
+}
+
 .padded-underline {
     text-underline-position: under;
 }

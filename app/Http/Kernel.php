@@ -56,7 +56,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
@@ -68,6 +67,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'language' => LanguageMiddleware::class,
         'isBusinessUser' => IsBusinessUser::class,
+        'auth' => \App\Http\Middleware\Authenticate::class,
         'removeEmptyQueryParam' => RemoveEmptyQueryParams::class
     ];
 }

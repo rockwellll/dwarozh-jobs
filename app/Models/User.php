@@ -24,4 +24,8 @@ class User extends Authenticatable
     public function isBusinessUser() {
         return $this->userable_type == "App\Models\BusinessUser";
     }
+
+    public function attachment() {
+        return $this->hasOne(Attachment::class);
+    }
 }

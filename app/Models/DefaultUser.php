@@ -32,4 +32,5 @@ class DefaultUser extends Model
     {
         $this->jobs()->save($job);
     }
+
 }

@@ -43,6 +43,10 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
 
         Route::middleware('removeEmptyQueryParam')->get('/jobs', 'JobsController@index')->name('index');
     });
+
+    Route::name('users.')->middleware('auth')->group(function () {
+        Route::get('/account', 'DefaultUserController@show')->name('default-user-profile');
+    });
 });
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
