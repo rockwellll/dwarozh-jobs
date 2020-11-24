@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusinessUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::view('job/detail', 'job-detail');
-
+Route::get('user/business',[BusinessUserController::class,'index']);
 
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 // Authentication Routes...
