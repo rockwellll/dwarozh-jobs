@@ -28,7 +28,6 @@ class JobsController extends Controller
         $result = $query->paginate(50);
         $viewedJob = empty($request->query('j')) ?  $result[0]: Job::find($request->query('j'));
 
-
         return view('jobs.index', [
             'jobs' => $result,
             'viewedJob' => $viewedJob,

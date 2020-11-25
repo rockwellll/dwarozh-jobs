@@ -2,12 +2,23 @@
 
 namespace App\Concerns;
 
+use App\Models\Favorite;
 use App\Models\Job;
 
 trait CanFavoriteJobs {
+//    public function favoriteJobs()
+//    {
+//        return $this->morphToMany(Job::class, 'favoritable', 'favorites', 'user_id', 'favoritable_id');
+//    }
+
+    public function favorites()
+    {
+        return $this->morphToMany(User::class, 'favoritable', 'favorites');
+    }
+
     public function favoriteJobs()
     {
-        return $this->morphedByMany(Job::class, 'favoritable', 'favorites', 'favoritable_id', 'user_id');
+        return $this->hasMany(Favorite::class, 'user_id', 'id')->where('favoritable_type', 'App\Models\Job');
     }
 
     public function contains(Job $job) {

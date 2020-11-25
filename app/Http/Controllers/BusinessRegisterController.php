@@ -42,16 +42,18 @@ class BusinessRegisterController extends Controller
         $account = BusinessUser::create();
         $account->user()->save($user);
 
-        $originalName = $data['attachment']->getClientOriginalName();
-        $name =  $data['attachment']->hashName();
-        $path = time() . '_' . $data['attachment']->storeAs('uploads', $name, 'public');
-        $image = new Image([
-            'name' => $name,
-            'url' => $path,
-            'user_id' => $user->id
-        ]);
+        if (!empty($data['attachment'])) {
+            $originalName = $data['attachment']->getClientOriginalName();
+            $name =  $data['attachment']->hashName();
+            $path = time() . '_' . $data['attachment']->storeAs('uploads', $name, 'public');
+            $image = new Image([
+                'name' => $name,
+                'url' => $path,
+                'user_id' => $user->id
+            ]);
 
-        $image->save();
+            $image->save();
+        }
         return $user;
     }
 

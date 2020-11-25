@@ -9,7 +9,7 @@ it('will show a link to post jobs if the current user is a business user', funct
         $browser->visit('/en/register/business')
             ->type('name', 'John')
             ->type('email', 'john@doe.com')
-            ->type('mobileNumber', '111-222-3333')
+            ->type('mobileNumber', '07503620373')
             ->type('password', '12345678')
             ->type('password_confirmation', '12345678')
             ->select('location', 'duhok')

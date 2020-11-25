@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use TobiSchulz\Favoritable\Traits\Favoriteable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Te7aHoudini\LaravelTrix\Traits\HasTrixRichText;
 
 class Job extends Model
 {
-    use HasFactory, HasTrixRichText;
+    use HasFactory, HasTrixRichText, Favoriteable;
 
     protected $guarded = [];
 

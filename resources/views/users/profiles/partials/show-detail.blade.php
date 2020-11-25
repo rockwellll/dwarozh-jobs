@@ -18,11 +18,13 @@
         {{__('users/default-user.location', ['location' => $user->location])}}
     </li>
 
-    <li class="my-2">
-        {{__('users/default-user.resume')}}
+    @if(!empty($user->attachment))
+        <li class="my-2">
+            {{__('users/default-user.resume')}}
 
-        <a class="link" href="{{ Storage::url($user->attachment->url)  }}">
-            {{$user->attachment->name}}
-        </a>
-    </li>
+            <a class="link" href="{{ Storage::url($user->attachment->url)  }}">
+                {{$user->attachment->name}}
+            </a>
+        </li>
+        @endif
 </ul>

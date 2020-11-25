@@ -164,7 +164,7 @@ label.file-label:hover {
 }
 
 .primary-button {
-    @apply bg-primary text-white rounded-md mt-2
+    @apply bg-primary text-white rounded-md
 }
 
 button.primary-button:hover {

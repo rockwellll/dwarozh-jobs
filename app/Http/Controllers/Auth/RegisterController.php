@@ -83,13 +83,15 @@ class RegisterController extends Controller
         $account->save();
         $account->user()->save($user);
 
-        $originalName = $data['attachment']->getClientOriginalName();
-        $name = $data['attachment']->hashName();
-        $path = $data['attachment']->storeAs('resumes', $name, 'public');
+        if (!empty($data['attachment'])) {
+            $originalName = $data['attachment']->getClientOriginalName();
+            $name = $data['attachment']->hashName();
+            $path = $data['attachment']->storeAs('resumes', $name, 'public');
 
-        $attachment = new Attachment(['name' => $originalName, 'url' => $path]);
+            $attachment = new Attachment(['name' => $originalName, 'url' => $path]);
 
-        $account->user->attachment()->save($attachment);
+            $account->user->attachment()->save($attachment);
+        }
 
 
         return $user;

@@ -3,13 +3,12 @@
 namespace App\Models;
 
 use App\Concerns\DelegateProperties;
-use App\Concerns\CanFavoriteUsers;
-use App\Concerns\CanFavoriteJobs;
 use Illuminate\Database\Eloquent\Model;
+use TobiSchulz\Favoritable\Traits\HasFavorites;
 
 class DefaultUser extends Model
 {
-    use DelegateProperties, CanFavoriteUsers, CanFavoriteJobs;
+    use DelegateProperties, HasFavorites;
 
     public $readers = [
         'name' => 'user->name',
@@ -32,5 +31,4 @@ class DefaultUser extends Model
     {
         $this->jobs()->save($job);
     }
-
 }

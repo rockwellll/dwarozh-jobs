@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.2",
         "livewire/livewire": "^2.2",
-        "te7a-houdini/laravel-trix": "^2.0"
+        "te7a-houdini/laravel-trix": "^2.0",
+        "tobischulz/laravel-favoritable": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
@@ -26,6 +27,7 @@
         "nunomaduro/collision": "5.0.0",
         "pestphp/pest": "^0.3.1",
         "pestphp/pest-plugin-laravel": "^0.3.0",
+        "pestphp/pest-plugin-livewire": "^0.3.1",
         "phpunit/phpunit": "^9.0"
     },
     "config": {

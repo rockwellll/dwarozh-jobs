@@ -18,11 +18,11 @@ class FavoriteButton extends Component
 
     public function mount() {
         $this->user = auth()->user();
-        $this->isFavorited = $this->user->userable->contains($this->job);
+        $this->isFavorited = $this->job->isFavorited($this->user->userable->id);
     }
 
     public function submit() {
-        $this->user->userable->toggle($this->job);
+        $this->job->toggleFavorite($this->user->userable->id);
 
         $this->isFavorited = !$this->isFavorited;
     }
