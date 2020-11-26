@@ -13,12 +13,9 @@ class JobsIndex extends Component
     public $viewedJob;
     public $jobs;
 
-    public function mount() {
-        $this->jobs = $this->jobs->items();
-    }
-
-    public function viewJob($job) {
-
+    public function viewJob($jobId) {
+        $this->viewedJob = Job::find($jobId);
+        $this->jobs = $this->jobs;
     }
 
     public function render()
