@@ -1,5 +1,5 @@
 <nav class="w-full flex justify-end">
-    <a href="" class="text-orange-600 hover:text-orange-500">
+    <a href="{{route('users.default-user-profile', ['locale' => app()->getLocale()])}}?tab=update" class="text-orange-600 hover:text-orange-500">
         {{__('users/default-user.edit_information')}}
     </a>
 </nav>
