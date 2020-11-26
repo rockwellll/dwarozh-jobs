@@ -17,6 +17,17 @@ return [
     'location' => 'شوێن: :location',
     'resume' => 'سی-ڤی :',
     'what_you_like_to_do' => 'ئایا حه‌ز به‌ چ ده‌که‌یت ئه‌مڕۆ :name ؟',
-    'edit_information'  => 'ده‌ستکاری کردنی زانیاریه‌کان'
+    'edit_information'  => 'ده‌ستکاری کردنی زانیاریه‌کان',
+    'favorite_info' => 'لێره‌، ده‌توانی ئه‌م هه‌لی کارانه‌ ببینیت که‌ ڕات لێبوونه‌',
+    'favorite_tip' => 'تێبینی: تۆ ده‌توانی ئه‌و کاره‌ی حه‌زت لێیه‌ خه‌زنی بکه‌یت به‌ داگرتنی',
+    'remove' => 'لابردن',
+    'view' => 'بینین',
+    'view_resume' => 'سی-ڤی خۆت',
+    'update_password' => 'نوێکردنه‌وه‌ی ووشه‌ی نهێنی',
+    'public_information' => 'زانیاریه‌ گشتیه‌کان',
+    'security_and_passwords' => 'سیکیوریتی و ووشه‌ی نهێنی',
+    'new_password' => 'ووشه‌ی نهێنی نوێ',
+    'confirm_new_password' => 'دووباره‌ ووشه‌ی نهێنی نوێ بنووسه‌',
+    'current_password' => 'ووشه‌ی نهێنی کۆن',
 
 ];
