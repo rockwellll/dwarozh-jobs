@@ -1,6 +1,7 @@
 <div
     class="flex flex-col md:flex-row sm:flex-col lg:flex-row xl:flex-row justify-center lg:p-5 mt-5 w-full rounded-md">
     <aside
+        wire:ignore
         class="text-gray-700 bg-white text-md  w-auto sm:w-auto md:w-3/12 lg:w-2/12 xl:w-2/12 border border-primary rounded-md mx-4">
         <ul class="divide-y divide-teal-600 p-4">
             @foreach($jobs as $job)
