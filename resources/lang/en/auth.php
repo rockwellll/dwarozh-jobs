@@ -60,5 +60,11 @@ return [
     'keep_me_logged_in' => 'Keep me signed in',
     "why_we_want_your_cv" => 'Your Resume(CV) is not required for you to create an account on Dwarozh Jobs, you can still apply to jobs without the resume,
     however, if you provide your resume it makes applying to jobs easier',
-    'why_you_want_my_cv' => 'Why you want my cv?'
+    'why_you_want_my_cv' => 'Why you want my cv?',
+    'dosent_match_old_password' => 'new password dose not match your old password',
+    'password_reset_success' => 'Password reset was successful',
+    'deleting_your_account' => "Deleting your account will erase everything related to you including",
+    'your_applications' => 'Your applications',
+    'Your_data' => 'Your data, including your image and resume if present',
+    'anything_else' => 'Everything else that is related to you'
 ];

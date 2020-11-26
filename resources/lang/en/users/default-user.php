@@ -17,5 +17,16 @@ return [
     'location' => 'Location: :location',
     'resume' => 'Resume: ',
     'what_you_like_to_do' => 'What you like to do today :name?',
-    'edit_information'  => 'Edit Information'
+    'edit_information'  => 'Edit Information',
+    'favorite_info' => 'Here you can view the jobs you favorited before',
+    'favorite_tip' => 'TIP: you can favorite jobs by clicking',
+    'remove' => 'Remove',
+    'view' => 'View',
+    'view_resume' => 'your resume',
+    'update_password' => 'Update password',
+    'public_information' => 'Public Information',
+    'security_and_passwords' => 'Security & passwords',
+    'new_password' => 'New password',
+    'confirm_new_password' => 'Confirm new password',
+    'current_password' => 'Current password',
 ];
