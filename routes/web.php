@@ -28,9 +28,13 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
 
-    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-    Route::get('/register/business', 'BusinessRegisterController@index')->name('business-register');
-    Route::post('/register/business', 'BusinessRegisterController@register')->name('business-register');
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm')
+        ->name('register');
+    Route::get('/register/business', 'BusinessRegisterController@index')
+        ->name('business-register');
+    Route::post('/register/business', 'BusinessRegisterController@register')
+        ->name('business-register');
+
     Route::post('register', 'Auth\RegisterController@register');
 
     Route::name('jobs.')->group(function () {
@@ -46,10 +50,12 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
 
     Route::name('users.')->middleware('auth')->group(function () {
         Route::get('/account', 'DefaultUserController@show')
+            ->middleware('isNotBusinessUser')
             ->name('default-user-profile');
 
-        Route::get('/business',[BusinessUserController::class,'index'])
-            ->middleware('isBusinessUser');
+        Route::get('/business', [BusinessUserController::class, 'index'])
+            ->middleware('isBusinessUser')
+            ->name('business-user-profile');
     });
 });
 // Password Reset Routes...
