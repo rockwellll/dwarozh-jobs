@@ -29,4 +29,6 @@ return [
     'new_password' => 'New password',
     'confirm_new_password' => 'Confirm new password',
     'current_password' => 'Current password',
+    'no_favorite_yet' => 'You haven\'t favorited any job yet',
+    'when_you_favorite' => 'When you favorite any job, they will show up here'
 ];
