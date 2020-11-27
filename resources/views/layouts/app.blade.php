@@ -59,7 +59,12 @@
                 </li>
 
                 <li class="px-2 py-1 mx-2">
-                    <a href="{{route('users.default-user-profile', ['locale' => app()->getLocale()])}}">{{__('home-page.account')}}</a>
+                    @if(auth()->user()->isBusinessUser())
+                        <a href="{{route('users.business-user-profile', ['locale' => app()->getLocale()])}}">{{__('home-page.account')}}</a>
+                    @else
+                         <a href="{{route('users.default-user-profile', ['locale' => app()->getLocale()])}}">{{__('home-page.account')}}</a>
+                    @endif
+
                 </li>
             @else
                 <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">

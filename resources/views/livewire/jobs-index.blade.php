@@ -12,7 +12,7 @@
                                 {{__('jobs/index.company_name')}}
                             </b>
                             <span class="mx-1">
-                                      {{$job->owner->name}}
+                                      {{$job['ownerName']}}
                             </span>
                         </h1>
                     </header>
@@ -22,9 +22,9 @@
                             <b>
                                 {{__('jobs/index.job_title')}}
                             </b>
-                                <button wire:click="viewJob({{$job}})" class="truncate">
-                                    {{$job->title}}
-                                </button>
+                            <button wire:click="viewJob({{$job['id']}})" class="truncate">
+                                {{$job['title']}}
+                            </button>
                         </div>
                     </main>
 
@@ -32,7 +32,7 @@
                         <b>
                             {{__('jobs/index.job_location')}}
                         </b>
-                        <h6 class="mx-1">{{$job->location}}</h6>
+                        <h6 class="mx-1">{{$job['location']}}</h6>
                     </footer>
                 </li>
             @endforeach
@@ -49,24 +49,27 @@
                     {{ $viewedJob->title}}
                 </div>
 
-                <aside class="flex text-base items-center">
-                    <button class="mx-2 px-3 py-2 primary-button focus:outline-none focus:shadow-outline">
-                        {{__('jobs/index.apply_to_job')}}
-                    </button>
-                    <button class="mx-2 pt-2 text-primary font-weight-bold ">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
-                        </svg>
-                    </button>
+                @auth
+                    @can('favorite-jobs')
+                        <aside class="flex text-base items-center">
+                            <button class="mx-2 px-3 py-2 primary-button focus:outline-none focus:shadow-outline">
+                                {{__('jobs/index.apply_to_job')}}
+                            </button>
+                            <button class="mx-2 pt-2 text-primary font-weight-bold ">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
+                                </svg>
+                            </button>
 
-                    @auth
-                        @can('favorite-jobs')
+
                             <livewire:favorite-button :job="$viewedJob"/>
-                        @endcan
-                    @endauth
-                </aside>
+
+                        </aside>
+                    @endcan
+                @endauth
+
 
             </div>
 
@@ -76,7 +79,7 @@
             </h1>
             <div class="text-md">
                 {{__('jobs/index.job_location')}}
-                {{__('auth.locations')[$jobs[0]->location]}}
+                {{__('auth.locations')[$viewedJob->location]}}
             </div>
 
             <main class="job-content p-4">
