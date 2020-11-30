@@ -25,7 +25,7 @@ class BusinessRegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'location' => ['required', 'string'],
             'mobileNumber' => ['required', 'string', 'unique:users'],
-            'attachment' => 'mimetypes:image/*'
+            'attachment' => 'mimetypes:image/* | max:3000'
         ]);
     }
 

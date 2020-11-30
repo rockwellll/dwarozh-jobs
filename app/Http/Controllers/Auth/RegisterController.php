@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Concerns\MakeAttachments;
 use App\Http\Controllers\Controller;
 use App\Models\Attachment;
 use App\Models\DefaultUser;
@@ -24,7 +25,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersUsers, MakeAttachments;
 
     /**
      * Where to redirect users after registration.
@@ -58,7 +59,7 @@ class RegisterController extends Controller
             'firstName' => ['required', 'string'],
             'lastName' => ['required', 'string'],
             'location' => ['required', 'string'],
-            'attachment' => 'mimetypes:application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'attachment' => 'mimetypes:application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document | max:2500',
             'mobileNumber' => ['required', 'string', 'unique:users'],
         ]);
     }
@@ -84,11 +85,7 @@ class RegisterController extends Controller
         $account->user()->save($user);
 
         if (!empty($data['attachment'])) {
-            $originalName = $data['attachment']->getClientOriginalName();
-            $name = $data['attachment']->hashName();
-            $path = $data['attachment']->storeAs('resumes', $name, 'public');
-
-            $attachment = new Attachment(['name' => $originalName, 'url' => $path]);
+            $attachment = $this->makeAttachment($data['attachment']);
 
             $account->user->attachment()->save($attachment);
         }

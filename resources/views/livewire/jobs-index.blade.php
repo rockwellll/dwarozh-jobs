@@ -2,10 +2,11 @@
     class="flex flex-col md:flex-row sm:flex-col lg:flex-row xl:flex-row justify-center lg:p-5 mt-5 w-full rounded-md">
     <aside
         wire:ignore
-        class="text-gray-700 bg-white text-md  w-auto sm:w-auto md:w-3/12 lg:w-2/12 xl:w-2/12 border border-primary rounded-md mx-4">
-        <ul class="divide-y divide-teal-600 p-4">
+        class="text-gray-700 text-md  w-auto sm:w-auto md:w-3/12 lg:w-2/12 xl:w-2/12  rounded-md mx-4">
+        <ul>
             @foreach($jobs as $job)
-                <li class="my-1 w-full">
+                <li
+                    :key="{{$loop->index}}" class="@if($viewedJob->id == $job['id']) border border-primary @endif my-1 w-full bg-white p-3 rounded-md @if(!$loop->first) my-3 @endif">
                     <header>
                         <h1>
                             <b>
@@ -22,7 +23,7 @@
                             <b>
                                 {{__('jobs/index.job_title')}}
                             </b>
-                            <button wire:click="viewJob({{$job['id']}})" class="truncate">
+                            <button wire:click="viewJob({{$job['id']}})" class="truncate focus:outline-none">
                                 {{$job['title']}}
                             </button>
                         </div>
@@ -40,13 +41,13 @@
     </aside>
 
     <div class="  text-gray-700  bg-white w-full sm:w-full md:w-9/12 lg:w-7/12 xl:w-8/12 rounded p-4 ">
-        @if(is_null($viewedJob))
+        @if(is_null($this->job))
             there is no hob posted yet
 
         @else
             <div class="flex   justify-between">
                 <div class="text-4xl text-gray-700 font-bold font font-serif text-center ">
-                    {{ $viewedJob->title}}
+                    {{ $this->job->title}}
                 </div>
 
                 @auth
@@ -64,7 +65,7 @@
                             </button>
 
 
-                            <livewire:favorite-button :job="$viewedJob"/>
+                            <livewire:favorite-button :key="$this->job->id" :job="$this->job"/>
 
                         </aside>
                     @endcan
@@ -75,15 +76,16 @@
 
             <h1 class="text-xl">
                 {{__('jobs/index.company_name')}}
-                {{$viewedJob->owner->name}}
+                {{$this->job->owner->name}}
             </h1>
             <div class="text-md">
                 {{__('jobs/index.job_location')}}
-                {{__('auth.locations')[$viewedJob->location]}}
+                {{__('auth.locations')[$this->job->location]}}
+                {!! $this->job->deadline !!}
             </div>
 
             <main class="job-content p-4">
-                {!! $viewedJob->content !!}
+                {!! $this->job->content !!}
             </main>
         @endif
     </div>
