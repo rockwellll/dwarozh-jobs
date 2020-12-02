@@ -58,7 +58,7 @@
                 </ul>
             </aside>
 
-            <div class="  text-gray-700  bg-white w-full sm:w-full md:w-9/12 lg:w-7/12 xl:w-8/12 rounded p-4 ">
+            <div class="text-gray-700  bg-white w-full sm:w-full md:w-9/12 lg:w-7/12 xl:w-8/12 rounded p-4 ">
                 @if(is_null($viewedJob))
                     there is no hob posted yet
 

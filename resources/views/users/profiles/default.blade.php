@@ -14,11 +14,6 @@
                         {{__('users/default-user.jobs')}}
                     </a>
                 </li>
-                <li class="mx-2">
-                    <a class="link text-primary no-underline" href="">
-                        {{__('users/default-user.companies')}}
-                    </a>
-                </li>
             </ul>
         </nav>
     </header>
@@ -33,7 +28,7 @@
         <main class="flex flex-col md:flex-row w-full px-2">
             <aside class="w-full md:w-2/12">
                 <ul class="flex flex-col">
-                    <li class="flex w-full justify-between items-center my-2  border-l border-primary px-1 pb-1">
+                    <li class="flex w-full justify-between items-center my-2  @if(empty(request()->getQueryString())) border-l border-primary @endif px-1 pb-1">
                         <a class="text-xl"
                            href="{{route('users.default-user-profile', ['locale' => app()->getLocale()])}}">
                             {{__('users/default-user.profile')}}
@@ -46,7 +41,8 @@
                         </svg>
                     </li>
 
-                    <li class="flex w-full justify-between items-center my-2 border-b border-gray-400 pb-1">
+                    <li
+                        class="flex w-full justify-between items-center my-2 px-1 @if(request()->query('tab') == "favorites") @if(app()->getLocale() == "en") border-l @else border-r @endif  border-primary @endif pb-1">
                         <a class="text-xl" href="?tab=favorites">
                             {{__('users/default-user.favorite_jobs')}}
                         </a>
@@ -60,7 +56,7 @@
                     </li>
 
 
-                    <li class="flex w-full justify-between items-center my-2  border-b border-gray-400 pb-1">
+                    <li class="flex w-full justify-between items-center my-2  px-1 @if(request()->query('tab') == "update") @if(app()->getLocale() == "en") border-l @else border-r @endif  border-primary @endif  pb-1">
                         <a class="text-xl" href="?tab=update">
                             {{__('users/default-user.update_information')}}
                         </a>
@@ -73,7 +69,7 @@
                     </li>
 
 
-                    <li class="flex w-full justify-between items-center my-2  border-b border-gray-400 pb-1">
+                    <li class="flex w-full justify-between items-center my-2  px-1 @if(request()->query('tab') == "applications") @if(app()->getLocale() == "en") border-l @else border-r @endif  border-primary @endif  pb-1">
                         <a class="text-xl" href="?tab=applications">
                             {{__('users/default-user.applications')}}
                         </a>
@@ -87,13 +83,6 @@
                                 d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
                         </svg>
                     </li>
-
-                    {{--                    <li class="flex w-full justify-between items-center my-2">--}}
-                    {{--                        <a class="text-xl text-red-400" href="?tab=danger">--}}
-                    {{--                            {{__('users/default-user.danger_zone')}}--}}
-                    {{--                        </a>--}}
-                    {{--                    </li>--}}
-
                 </ul>
             </aside>
 
@@ -104,6 +93,8 @@
                     @include('users.profiles.partials.favorites')
                 @elseif(request()->query('tab') == "update")
                     @include('users.profiles.partials.update-info')
+                @else
+                    @include("users.profiles.partials.applications")
                 @endif
             </section>
         </main>

@@ -19,6 +19,8 @@ class ChangePasswordForm extends Component
         'password' => 'required | confirmed',
     ];
 
+    public $user;
+
     public function updatePassword() {
         $this->validate();
 
@@ -27,17 +29,16 @@ class ChangePasswordForm extends Component
             return;
         }
 
-        $user = auth()->user();
-        $user->password = Hash::make($this->password);;
-        $user->save();
+        $this->user->password = Hash::make($this->password);;
+        $this->user->save();
 
-        $this->sendSuccess(__('auth.password_reset_success'));
+        session()->flash(__('auth.password_reset_success'));
 
         $this->reset();
     }
 
     public function isOldPasswordCorrect() {
-        return Hash::check($this->old, auth()->user()->password);
+        return Hash::check($this->old, $this->user->password);
     }
 
     public function togglePasswordVisibility() {

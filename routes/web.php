@@ -53,6 +53,10 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
             ->middleware('isNotBusinessUser')
             ->name('default-user-profile');
 
+        Route::delete("/account", 'DefaultUserController@destroy')
+            ->middleware('isNotBusinessUser')
+            ->name('delete-default-user');
+
         Route::get('/business', [BusinessUserController::class, 'index'])
             ->middleware('isBusinessUser')
             ->name('business-user-profile');

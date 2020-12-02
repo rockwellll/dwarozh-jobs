@@ -67,7 +67,23 @@
     </div>
 
     <div class="flex w-4/5 md:w-2/5 flex-col">
-        @include('partials.locations-select-input')
+        <label for="location">
+            {{__('auth.location')}}
+        </label>
+
+        <select name="location" id="location"
+                class="@error('location') border-red-500 @enderror">
+            <option disabled selected value class="text-gray-500"> {{__('auth.select_location')}} </option>
+            @foreach(array_keys(__('auth.locations')) as $l)
+                <option @if($l == $user->location)
+                        selected
+                        @endif
+                        value="{{$l}}"
+                >
+                    {{__('auth.locations')[$l]}}
+                </option>
+            @endforeach
+        </select>
     </div>
 
     <button class="accent-button px-3 py-2 text-white rounded-md my-2" type="submit">

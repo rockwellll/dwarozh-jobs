@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Concerns\MakeAttachments;
 use App\Http\Controllers\Controller;
 use App\Models\Attachment;
 use App\Models\DefaultUser;
@@ -25,7 +24,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers, MakeAttachments;
+    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -85,7 +84,7 @@ class RegisterController extends Controller
         $account->user()->save($user);
 
         if (!empty($data['attachment'])) {
-            $attachment = $this->makeAttachment($data['attachment']);
+            $attachment = Attachment::of($data['attachment']);
 
             $account->user->attachment()->save($attachment);
         }

@@ -18,13 +18,15 @@
         {{__('users/default-user.location', ['location' => $user->location])}}
     </li>
 
-    @if(!empty($user->attachment))
-        <li class="my-2">
-            {{__('users/default-user.resume')}}
+    @empty($user->attachment)
+        <h1>You havent got any resume</h1>
 
+    @else
+        <h1>{{__('users/default-user.view')}}
             <a class="link" href="{{ Storage::url($user->attachment->url)  }}">
-                {{$user->attachment->name}}
+                {{__('users/default-user.view_resume')}}
             </a>
-        </li>
-        @endif
+        </h1>
+    @endempty
+
 </ul>

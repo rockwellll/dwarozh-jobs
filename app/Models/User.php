@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -27,5 +29,23 @@ class User extends Authenticatable
 
     public function attachment() {
         return $this->hasOne(Attachment::class);
+    }
+
+    public function deleteSelfAndRelatedData() {
+        DB::transaction(function () {
+            $this->userable->delete();
+
+            if($this->image != null) {
+                $this->image->delete();
+            }
+
+            if($this->attachment != null) {
+                $resume = $this->attachment;
+                Storage::delete($resume->url);
+                $resume->delete();
+            }
+
+            self::delete();
+        });
     }
 }

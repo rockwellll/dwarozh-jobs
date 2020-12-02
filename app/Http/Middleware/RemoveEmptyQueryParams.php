@@ -17,11 +17,11 @@ class RemoveEmptyQueryParams
     public function handle(Request $request, Closure $next)
     {
 
-        if ($request->query('category')) {
+        if (empty($request->query('category'))) {
             $request->query->remove('category');
         }
 
-        if (empty($request->query('location'))) {
+        if (is_null($request->query('location'))) {
             $request->query->remove('location');
         }
 

@@ -32,5 +32,14 @@ return [
     'no_favorite_yet' => 'You haven\'t favorited any job yet',
     'when_you_favorite' => 'When you favorite any job, they will show up here',
     'info_updated_success' => 'Your public information was successfully changed',
-    'operation_done' => "Operation performed successfully"
+    'operation_done' => "Operation performed successfully",
+    "delete_account" => "Deleting your account will erase everything related to you including: ",
+    "your_applications" => "Your applications",
+    "your_data" => "Your Data, including username, mobile number, and your resume",
+    "anything_else_related_to_you" => "Anything else that belongs to your account or is related to you.",
+    "delete_account_note" => "NOTE, this action cannot be reversed",
+    "i_understand_delete_account" => "I Understand, Delete My Account",
+    "cancel" => "Cancel",
+    "warning" => "Warning",
+    "delete_account_label" => "Delete Account"
 ];

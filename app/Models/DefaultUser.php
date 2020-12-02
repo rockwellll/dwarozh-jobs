@@ -13,6 +13,7 @@ class DefaultUser extends Model
     public $readers = [
         'name' => 'user->name',
         'email' => 'user->email',
+        'location' => 'user->location'
     ];
 
     public $timestamps = false;
@@ -30,5 +31,10 @@ class DefaultUser extends Model
     public function applyToJob($job)
     {
         $this->jobs()->save($job);
+    }
+
+    public function hasFavoritedJobs()
+    {
+        return count($this->favorites(\App\Models\Job::class)->get()) != 0;
     }
 }

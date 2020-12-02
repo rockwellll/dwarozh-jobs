@@ -17,7 +17,7 @@
 
 <hr class="h-2 w-full my-2"/>
 
-@if(count($user->userable->favorites(\App\Models\Job::class)->get()) == 0)
+@if(!$user->userable->hasFavoritedJobs())
     <section class="w-full flex flex-col justify-center items-center">
         <header>
             <svg class="w-20 h-20 text-primary" fill="currentColor" viewBox="0 0 20 20"
