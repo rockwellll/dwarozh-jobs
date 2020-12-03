@@ -22853,7 +22853,7 @@ video {
 }
 
 .bg-primary {
-  background-color: #159195;
+  background-color: #128588;
 }
 
 .bg-primary-900 {
@@ -23001,7 +23001,7 @@ label.file-label:hover {
 }
 
 .primary-button {
-  background-color: #159195;
+  background-color: #128588;
   --text-opacity: 1;
   color: #fff;
   color: rgba(255, 255, 255, var(--text-opacity));
@@ -23049,6 +23049,14 @@ main.job-content ul {
 
 main.job-content ol {
   list-style-type: decimal;
+}
+
+.nav-link:hover {
+  color: rgba(21, 145, 149, .90);
+}
+
+select:focus {
+  border-color: #159195
 }
 
 @media (min-width: 640px) {

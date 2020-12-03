@@ -38,48 +38,15 @@
             background: #F8F8F8;
         }
     </style>
-    <livewire:styles />
+    <livewire:styles/>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.1/dist/alpine.min.js" defer></script>
 </head>
-<body>
-<header class="w-full px-10 bg-accent" style="color: #F8F8F8">
-    <nav class="main w-full flex justify-between items py-5 text-center text-md">
-        <h1>
-            <a href="/">Dwarozh Jobs</a>
-        </h1>
-        <ul class="flex">
+<body class="antialiased">
+<header class="w-full px-2 md:px-10 bg-accent" style="color: #F8F8F8">
+    <nav class="main w-full px-2 md:px-0 flex justify-center items-center flex-col py-5 text-center text-md">
+        @include("layouts.partials.nav")
 
-
-            @auth
-                <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
-                    <form method="POST" action="{{route('logout')}}">
-                        @csrf
-                        <button>Logout</button>
-                    </form>
-                </li>
-
-                <li class="px-2 py-1 mx-2">
-                    @if(auth()->user()->isBusinessUser())
-                        <a href="{{route('users.business-user-profile', ['locale' => app()->getLocale()])}}">{{__('home-page.account')}}</a>
-                    @else
-                         <a href="{{route('users.default-user-profile', ['locale' => app()->getLocale()])}}">{{__('home-page.account')}}</a>
-                    @endif
-
-                </li>
-            @else
-                <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
-                    <a href="{{route('login', ['locale' => app()->getLocale()])}}">{{__('auth.login')}}</a>
-                </li>
-
-                <li class="px-2 py-1 mx-2 bg-primary-500 rounded-sm text-center">
-                    <a href="{{route('register', ['locale' => app()->getLocale()])}}">{{__('auth.signup')}}</a>
-                </li>
-
-                <li class="px-2 py-1 mx-2">
-                    <a href="/">{{__('page-title.home')}}</a>
-                </li>
-            @endauth
-        </ul>
+        @include("layouts.partials.mobile-nav")
     </nav>
 </header>
 <section class="w-full px-3 md:px-5 lg:px-10">

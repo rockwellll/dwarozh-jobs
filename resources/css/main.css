@@ -29,7 +29,7 @@
 }
 
 .bg-primary {
-    background-color: #159195;
+    background-color: #128588;
 }
 
 .bg-primary-900 {
@@ -211,4 +211,12 @@ main.job-content ul {
 
 main.job-content ol {
     list-style-type: decimal;
+}
+
+.nav-link:hover {
+    @apply text-primary;
+}
+
+select:focus {
+    @apply border-primary
 }

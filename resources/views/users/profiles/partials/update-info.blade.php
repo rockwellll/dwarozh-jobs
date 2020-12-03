@@ -3,7 +3,7 @@
 
 
     <hr class="w-full bg-primary my-2"/>
-    <header class="w-full flex items-start">
+    <header class="w-full flex items-start" id="resume">
         <h1 class="text-accent text-xl">
             Resume
         </h1>
@@ -31,7 +31,7 @@
 
     <div x-data="{ show: false }" class="w-full h-full">
         <div class="flex justify-center">
-            <button @click={show=true} type="button" class="bg-red-700 p-2 rounded text-white shadow focus:outline-none focus:shadow-outline">
+            <button @click={show=true} type="button" class="bg-red-600 hover:bg-red-700 p-2 rounded text-white shadow focus:outline-none focus:shadow-outline">
                 {{__('users/default-user.delete_account_label')}}
             </button>
         </div>
@@ -81,7 +81,7 @@
                                 @method("delete")
                                 @csrf
                                 <input type="hidden" value="{{$user->id}}" name="id">
-                                <button type="submit" class="bg-red-600 focus:outline-none focus:shadow-outline text-white rounded px-4 py-2 mx-2 rounded-md">
+                                <button type="submit" class="bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline text-white rounded px-4 py-2 mx-2 rounded-md">
                                     {{__('users/default-user.i_understand_delete_account')}}
                                 </button>
                             </form>

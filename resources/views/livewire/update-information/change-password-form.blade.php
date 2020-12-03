@@ -5,7 +5,7 @@
         </h1>
     @endif
 
-    <div class="flex w-4/5 md:w-2/5 flex-col my-2">
+    <div class="flex w-full md:w-2/5 flex-col my-2">
         <label class="mx-1" for="old_password">
             {{__('users/default-user.current_password')}}
         </label>
@@ -27,7 +27,7 @@
         @enderror
 
     </div>
-    <div class="flex w-4/5 md:w-2/5 flex-col">
+    <div class="flex w-full md:w-2/5 flex-col">
         <label class="mx-1" for="password">
             {{__('users/default-user.new_password')}}
         </label>
@@ -44,7 +44,7 @@
         <span class="text-red-400">{{$message}}</span>
         @enderror
     </div>
-    <div class="flex w-4/5 md:w-2/5 flex-col my-2">
+    <div class="flex w-full md:w-2/5 flex-col my-2">
         <label class="mx-1" for="password_confirmation">
             {{__('users/default-user.confirm_new_password')}}
         </label>

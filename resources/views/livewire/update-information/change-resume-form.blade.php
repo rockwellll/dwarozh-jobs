@@ -6,7 +6,7 @@
     @endif
 
 
-    <div class="flex w-4/5 md:w-2/5 flex-col">
+    <div class="flex w-full md:w-2/5 flex-col">
         @empty($user->attachment)
             <h1>You havent got any resume</h1>
 

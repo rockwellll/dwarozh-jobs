@@ -11,7 +11,7 @@
             {{__('users/default-user.public_information')}}
         </h1>
     </header>
-    <div class="flex w-4/5 md:w-2/5 flex-col">
+    <div class="flex w-full md:w-2/5 flex-col">
         <label class="mx-1" for="name">
             {{__('auth.first_name')}}
         </label>
@@ -27,7 +27,7 @@
         <span class="text-red-400">{{$message}}</span>
         @enderror
     </div>
-    <div class="flex w-4/5 md:w-2/5 flex-col">
+    <div class="flex w-full md:w-2/5 flex-col">
         <label class="mx-1" for="email">
             {{__('auth.email')}}
         </label>
@@ -44,7 +44,7 @@
         <span class="text-red-400">{{$message}}</span>
         @enderror
     </div>
-    <div class="flex w-4/5 md:w-2/5 flex-col">
+    <div class="flex w-full md:w-2/5 flex-col">
         <label class="mx-1" for="mobileNumber">
             {{__('auth.mobile_number')}}
         </label>
@@ -66,7 +66,7 @@
         @enderror
     </div>
 
-    <div class="flex w-4/5 md:w-2/5 flex-col">
+    <div class="flex w-full md:w-2/5 flex-col">
         <label for="location">
             {{__('auth.location')}}
         </label>
