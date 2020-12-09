@@ -41,5 +41,13 @@ return [
     "i_understand_delete_account" => "I Understand, Delete My Account",
     "cancel" => "Cancel",
     "warning" => "Warning",
-    "delete_account_label" => "Delete Account"
+    "delete_account_label" => "Delete Account",
+    "here_you_see_jobs_applied" => "Here you can see the jobs that you have applied to before",
+    "withdraw" => "Withdraw",
+    "withdraw_warning" => "You are about to withdraw your application from this job",
+    "are_you_sure" => "are you sure?",
+    "you_can_apply_later_again" => "If you changed your mind, you can apply later again.",
+    "withdraw_confirm" => "Withdraw my application",
+    "havent_applied_yet" => "You haven't applied to a job yet, you can find jobs on the home page",
+    "when_you_save" => "When you apply to a job, you can find it here"
 ];

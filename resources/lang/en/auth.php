@@ -67,5 +67,6 @@ return [
     'your_applications' => 'Your applications',
     'Your_data' => 'Your data, including your image and resume if present',
     'anything_else' => 'Everything else that is related to you',
-    "logout" => "Logout"
+    "logout" => "Logout",
+    'mobile_number_error' => "The mobile number may not be greater than 11 characters"
 ];

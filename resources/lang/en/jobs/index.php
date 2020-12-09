@@ -12,5 +12,9 @@ return [
     "check_yo_info" => "Check you information on your",
     "profile" => "profile",
     "make_sure" => "Make sure you have your latest",
-    "cv" => "resume"
+    "cv" => "resume",
+    "about_to_apply" => "You are about to apply to the job:",
+    "company_can_download" => "The company will be able to see, and download your resume",
+    "you_can_withdraw" => "You can withdraw your application anytime you like in your profile",
+    "already_applied" => "You have applied to this job"
 ];
