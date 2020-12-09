@@ -24,7 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "alpinejs": "^2.7.1",
+        "alpinejs": "^2.7.3",
         "tailwindcss": "^1.7.6",
         "turbolinks": "^5.2.0",
         "vue-js-modal": "^2.0.0-rc.6"
