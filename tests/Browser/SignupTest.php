@@ -27,13 +27,29 @@ it('allows to switch between kurdish and english locales', function () {
     });
 });
 
+it('throws validation error if mobile number is not exactly 11 length', function () {
+    $this->browse(function (Browser $browser) {
+        $browser->visit('/en/register')
+            ->type('firstName', 'John')
+            ->type('lastName', 'Doe')
+            ->type('mobileNumber', 'somerandgomstring')
+            ->type('email', 'john@doe.com')
+            ->type('password', '12345678')
+            ->type('password_confirmation', '12345678')
+            ->select('location', 'erbil')
+            ->attach('attachment', __DIR__.'/attachments/ahmed-cv.pdf')
+            ->press('Create Account')
+            ->assertPathIsNot('/en');
+    });
+});
+
 
 it('allows the user to create account if validation was successful, and redirects back to home page', function () {
     $this->browse(function (Browser $browser) {
         $browser->visit('/en/register')
             ->type('firstName', 'John')
             ->type('lastName', 'Doe')
-            ->type('mobileNumber', 'somerandomstring')
+            ->type('mobileNumber', '12345678901')
             ->type('email', 'john@doe.com')
             ->type('password', '12345678')
             ->type('password_confirmation', '12345678')
@@ -93,7 +109,7 @@ it('allows the business user to create account and redirect back to home page', 
         $browser->visit('/en/register/business')
             ->type('name', 'John')
             ->type('email', 'john@doe.com')
-            ->type('mobileNumber', '111-33355000')
+            ->type('mobileNumber', '12345678901')
             ->type('password', '12345678')
             ->type('password_confirmation', '12345678')
             ->select('location', 'duhok')

@@ -37,6 +37,8 @@ abstract class DuskTestCase extends BaseTestCase
             '--silent'
         ]);
 
+        // to disable logging when running e2e tests
+        $options->setExperimentalOption('excludeSwitches', ['enable-logging']);
         return RemoteWebDriver::create(
             'http://localhost:9515', DesiredCapabilities::chrome()->setCapability(
                 ChromeOptions::CAPABILITY, $options

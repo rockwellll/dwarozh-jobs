@@ -13,7 +13,7 @@ it('creates user account and redirects back to home page', function () {
        'location' => 'erbil',
        'password' => '11223344',
        'password_confirmation' => '11223344',
-       'mobileNumber' => '111-222-333-4444'
+       'mobileNumber' => '12345678910'
    ])->assertRedirect('/en');
 });
 
