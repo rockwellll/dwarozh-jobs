@@ -62,6 +62,10 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
             ->name('business-user-profile');
     });
 });
+
+Route::post('jobs/{job}/apply', 'ApplyToJobController@store')->name('apply-to-job');
+Route::delete('jobs/{job}/apply', 'ApplyToJobController@destroy')->name('remove-job-application');
+Route::delete('jobs/{job}/favorite', 'FavoriteJobsController@destroy')->name("favorites.destroy");
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');

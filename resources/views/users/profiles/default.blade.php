@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(session()->has("success"))
+        <h1 class="text-primary text-2xl">
+            {{session("success")}}
+        </h1>
+    @endif
+
+
     <header>
         <h1 class="text-xl md:text-2xl lg:text-4xl">
             {{__('users/default-user.welcome_back', ['name' => $user->name])}}

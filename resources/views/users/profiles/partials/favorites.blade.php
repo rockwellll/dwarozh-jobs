@@ -47,9 +47,33 @@
 
     </section>
 @else
-    <div class="w-full flex flex-col md:flex-row justify-around items-start">
+    <div class="w-full flex flex-col md:flex-row justify-start items-start">
         @foreach($user->userable->favorites(\App\Models\Job::class)->get() as $job)
-            <livewire:favorite-job :job="$job"/>
+            <x-job :job="$job">
+                <x-slot name="actions">
+                    <div class="flex flex-col md:flex-row items-center mt-2">
+                        <form method="POST" action="{{route("favorites.destroy", ['job' => $job->id])}}">
+                            @method("delete")
+                            @csrf
+
+                            <button class="accent-button text-white rounded px-3 py-2">
+                                Remove
+                            </button>
+                        </form>
+
+                        <form method="GET"
+                              action="{{route('jobs.index', ['locale' => app()->getLocale()])}}">
+                            <input type="hidden" value="{{$job->id}}" name="j">
+                            <input type="hidden" value="{{$job->type->name}}" name="category">
+
+                            <button class="primary-button text-white rounded px-3 py-2 mx-2">
+                                View
+                            </button>
+                        </form>
+                    </div>
+                </x-slot>
+            </x-job>
+
         @endforeach
     </div>
 

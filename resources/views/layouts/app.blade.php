@@ -20,7 +20,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
-@stack('scripts')
+
 <!-- Fonts -->
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -39,7 +39,6 @@
         }
     </style>
     <livewire:styles/>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.1/dist/alpine.min.js" defer></script>
 </head>
 <body class="antialiased">
 <header class="w-full px-2 md:px-10 bg-accent" style="color: #F8F8F8">
@@ -59,6 +58,7 @@
 
 
 @livewireScripts
+@stack('scripts')
 <script>
     window._locale = '{{ app()->getLocale() }}';
     window._translations = {!! cache('translations') !!};

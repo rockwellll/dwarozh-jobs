@@ -214,7 +214,7 @@ main.job-content ol {
 }
 
 .nav-link:hover {
-    @apply text-primary;
+    @apply text-primary-600;
 }
 
 select:focus {

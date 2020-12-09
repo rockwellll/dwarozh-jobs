@@ -1,4 +1,4 @@
-<form action="{{route('jobs.index', ['locale' => app()->getLocale()])}}"
+<form id="search" action="{{route('jobs.index', ['locale' => app()->getLocale()])}}"
       class="flex flex-col md:flex-row justify-around items-center bg-white rounded-md">
     <div class="flex flex-col md:flex-row w-full md:w-10/12 px-3 md:px-0 items-center">
         <div class="m-2 w-full md:w-5/12">
@@ -34,8 +34,20 @@
         </div>
     </div>
 
-    <button class="px-3 py-2 my-1 primary-button focus:outline-none focus:shadow-outline"
+    <button type="submit" class="px-3 py-2 my-1 primary-button focus:outline-none focus:shadow-outline"
             style="width: 10rem">
         {{__('home-page.Search')}}
     </button>
 </form>
+
+{{--@push("scripts")--}}
+{{--    <script defer type="text/javascript">--}}
+{{--        document.getElementById("search").addEventListener("submit", function (e) {--}}
+{{--            if(document.getElementById("job").value === "") {--}}
+{{--                document.getElementById("job").remove();--}}
+{{--            }--}}
+
+{{--            this.submit();--}}
+{{--        });--}}
+{{--    </script>--}}
+{{--@endpush--}}
