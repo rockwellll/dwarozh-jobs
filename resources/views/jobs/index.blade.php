@@ -18,10 +18,10 @@
 
         <div
             class="flex flex-col md:flex-row sm:flex-col lg:flex-row xl:flex-row justify-center lg:p-5 mt-5 w-full rounded-md">
-            @if(!is_null($viewedJob))
-                @include("jobs.partials.jobs")
-            @else
+            @if(is_null($viewedJob))
                 @include("jobs.partials.no-jobs")
+            @else
+                @include("jobs.partials.jobs")
             @endif
         </div>
     </div>
