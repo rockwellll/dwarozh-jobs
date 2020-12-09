@@ -81,13 +81,15 @@
 
                     <input
                         required
-                        type="text"
+                        type="tel"
                         id="mobileNumber"
                         value="{{old('mobileNumber')}}"
                         name="mobileNumber"
                         placeholder="{{__("auth.mobile_number")}}"
                         class="bg-body @error('mobileNumber') border-red-500 @enderror">
-
+                    <small class="text-gray-700">
+                        0750xxxxxxx
+                    </small>
                     @error('mobileNumber')
                     <span class="text-red-400">{{$message}}</span>
                     @enderror
