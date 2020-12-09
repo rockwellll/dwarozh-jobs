@@ -23052,7 +23052,7 @@ main.job-content ol {
 }
 
 .nav-link:hover {
-  color: rgba(21, 145, 149, .90);
+  color: rgba(21, 145, 149, .6);
 }
 
 select:focus {
