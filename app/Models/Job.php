@@ -25,7 +25,7 @@ class Job extends Model
 
     public function applicants()
     {
-        return $this->belongsToMany(DefaultUser::class, 'applicant_job', 'applicant_id', 'job_id');
+        return $this->belongsToMany(DefaultUser::class, 'applicant_job', 'job_id', 'applicant_id');
     }
 
     public function type()

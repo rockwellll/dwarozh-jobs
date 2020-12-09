@@ -14,6 +14,7 @@ class CreateApplicantJobTable extends Migration
     public function up()
     {
         Schema::create('applicant_job', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('job_id');
             $table->unsignedBigInteger('applicant_id');
 

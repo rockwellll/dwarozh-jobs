@@ -25,16 +25,16 @@ class DefaultUser extends Model
 
     public function applications()
     {
-        return $this->belongsToMany(Job::class, 'applicant_job', 'job_id', 'applicant_id');
+        return $this->belongsToMany(Job::class, 'applicant_job', 'applicant_id', 'job_id');
     }
 
-    public function applyToJob($job)
+    public function didApplyTo($job)
     {
-        $this->jobs()->save($job);
+        return $this->applications()->where("job_id", $job->id)->count() != 0;
     }
 
     public function hasFavoritedJobs()
     {
-        return count($this->favorites(\App\Models\Job::class)->get()) != 0;
+        return $this->favorites(\App\Models\Job::class)->count() != 0;
     }
 }
