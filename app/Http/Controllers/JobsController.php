@@ -25,7 +25,7 @@ class JobsController extends Controller
                 $query->where('job_type_id', $category->id);
             });
 
-        $result = $query->paginate(50);
+        $result = $query->paginate(25)->withQueryString();
         $viewedJob = empty($request->query('j')) ?  $result[0]: Job::find($request->query('j'));
 
         return view('jobs.index', [

@@ -7,6 +7,7 @@ use App\Models\Job;
 use App\Models\JobType;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 
 class JobFactory extends Factory
@@ -34,15 +35,15 @@ class JobFactory extends Factory
             'erbil',
             'sulaimaniya',
             'duhok',
-            'kirkuk'
+            'kerkuk'
         ];
 
         return [
             'content' => $this->faker->paragraph,
             'title' => $this->faker->title,
             'business_user_id' => $b,
-            'job_type_id' => JobType::first(),
-            'deadline' => now(),
+            'job_type_id' => JobType::find(2),
+            'deadline' => now()->addDay(rand(1, 20)),
             'location' => $locations[array_rand($locations)]
         ];
     }

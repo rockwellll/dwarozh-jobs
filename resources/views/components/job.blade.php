@@ -1,4 +1,4 @@
-<section class="rounded border p-5 w-full md:w-5/12 ">
+<article class="rounded border p-5 mx-5 my-2">
     <header>
         <h1>
             {{__('jobs/index.job_title')}}:
@@ -16,4 +16,4 @@
 
         {{$actions}}
     </footer>
-</section>
+</article>

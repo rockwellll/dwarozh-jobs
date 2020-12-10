@@ -179,6 +179,8 @@
     </main>
 @endsection
 
-@push('scripts')
-    <script src="{{asset('js/register.js')}}" defer></script>
-@endpush
+@if(request()->query("tab") == "update")
+    @push('scripts')
+        <script src="{{asset('js/register.js')}}" defer></script>
+    @endpush
+@endif

@@ -68,5 +68,7 @@ return [
     'Your_data' => 'Your data, including your image and resume if present',
     'anything_else' => 'Everything else that is related to you',
     "logout" => "Logout",
-    'mobile_number_error' => "The mobile number may not be greater than 11 characters"
+    'mobile_number_error' => "The mobile number may not be greater than 11 characters",
+    "we_accept" => "We accept Word or PDF. Max size: 2MB",
+    "image_size" => "Max size: 2MB"
 ];

@@ -148,6 +148,10 @@
                     </div>
 
                     <input type="file" name="attachment" id="file" style="display: none;" accept="image/*">
+
+                    <small class="text-gray-700">
+                        {{__('auth.image_size')}}
+                    </small>
                     @error('attachment')
                     <span class="text-red-400">{{$message}}</span>
                     @enderror

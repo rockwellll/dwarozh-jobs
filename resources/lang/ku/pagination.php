@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
-    'showing' => "Showing",
-    "to" => "to",
-    "of" => "of",
-    "results" => "results"
+    'previous' => '&laquo; گه‌ڕانه‌وه‌',
+    'next' => 'دواتر &raquo;',
+    'showing' => "نیشان دانی",
+    "to" => "تا",
+    "of" => "له‌",
+    "results" => ""
 ];

@@ -160,6 +160,10 @@
                     </div>
                     <input type="file" name="attachment" id="file" style="display: none;"
                            accept=".docx,application/msword, .pdf, application/pdf">
+
+                    <small class="text-gray-700">
+                        {{__('auth.we_accept')}}
+                    </small>
                     @error('attachment')
                     <span class="text-red-400">{{$message}}</span>
                     @enderror

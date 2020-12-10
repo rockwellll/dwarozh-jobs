@@ -58,7 +58,7 @@ class RegisterController extends Controller
             'firstName' => ['required', 'string'],
             'lastName' => ['required', 'string'],
             'location' => ['required', 'string'],
-            'attachment' => 'mimetypes:application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document | max:2500',
+            'attachment' => 'mimetypes:application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document | max:2048',
             'mobileNumber' => ['required', 'string', 'unique:users', 'digits:11'],
         ]);
     }
