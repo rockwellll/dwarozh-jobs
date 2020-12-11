@@ -3,7 +3,15 @@
         class="text-gray-700 text-md  w-auto sm:w-auto md:w-3/12 lg:w-2/12 xl:w-2/12  rounded-md mx-4">
         <ul>
             @foreach($jobs as $job)
-                <li class="my-1 w-full @if($viewedJob->id == $job->id) border border-primary @endif my-1 w-full bg-white p-3 rounded-md @if(!$loop->first) my-3 @endif">
+                <li onclick="document.getElementById('link-{{$job->id}}').click()"
+                    class="my-1 cursor-pointer w-full @if($viewedJob->id == $job->id) border border-primary @endif my-1 w-full bg-white p-3 rounded-md @if(!$loop->first) my-3 @endif">
+                    <a class="truncate hidden"
+                       id="link-{{$job->id}}"
+                       href="{{route('jobs.index', ['locale' => app()->getLocale(), 'j' => $job->id, 'category' => request()->query("category")])}}">
+                        {{$job->title}}
+                    </a>
+
+
                     <header>
                         <h1>
                             <b>
@@ -20,10 +28,9 @@
                             <b>
                                 {{__('jobs/index.job_title')}}
                             </b>
-                            <a class="truncate"
-                               href="{{route('jobs.index', ['locale' => app()->getLocale(), 'j' => $job->id, 'category' => request()->query("category")])}}">
+                            <span class="truncate">
                                 {{$job->title}}
-                            </a>
+                            </span>
 
                         </div>
                     </main>
@@ -39,8 +46,9 @@
         </ul>
     </aside>
 
-    <div class="text-gray-700  bg-white w-full sm:w-full md:w-9/12 lg:w-7/12 xl:w-8/12 rounded p-4 ">
-        <div class="flex   justify-between">
+    <div class="text-gray-700  bg-white w-full sm:w-full md:w-9/12 lg:w-7/12 xl:w-8/12 rounded p-4 overflow-y-auto"
+         style="min-height: 200px; max-height: 800px">
+        <div class="flex  justify-between">
             <div class="text-4xl text-gray-700 font-bold font font-serif text-center ">
                 {{ $viewedJob->title}}
             </div>
