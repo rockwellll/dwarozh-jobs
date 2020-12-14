@@ -60,6 +60,15 @@ Route::prefix('/{locale}/')->middleware('language')->group(function () {
         Route::get('/business', [BusinessUserController::class, 'index'])
             ->middleware('isBusinessUser')
             ->name('business-user-profile');
+
+        Route::get('/business/edit', 'BusinessUserController@edit')
+            ->middleware('isBusinessUser')
+            ->name('business.edit');
+
+        Route::delete('/business', 'BusinessUserController@destroy')
+            ->middleware('isBusinessUser')
+            ->name('business.destroy');
+
     });
 });
 

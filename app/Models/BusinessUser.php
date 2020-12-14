@@ -14,6 +14,8 @@ class BusinessUser extends Model
     public $readers= [
         'name' => 'user->name',
         'email' => 'user->email',
+        'location' => 'user->location',
+        'mobileNumber' => 'user->mobileNumber'
     ];
 
     public function user()

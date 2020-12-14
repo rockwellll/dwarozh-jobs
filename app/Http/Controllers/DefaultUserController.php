@@ -8,17 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class DefaultUserController extends Controller
 {
-    public function show(Request $request) {
+    public function show(Request $request)
+    {
         return view('users.profiles.default', [
             'user' => auth()->user()
         ]);
     }
 
-    public function destroy(Request $request) {
+    public function destroy(Request $request)
+    {
         $user = User::find($request->input('id'));
 
         $user->deleteSelfAndRelatedData();
         Auth::logout();
-        return redirect("/");
+        return redirect("/" . app()->getLocale());
     }
 }
