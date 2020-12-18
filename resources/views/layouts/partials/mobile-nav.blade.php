@@ -12,7 +12,7 @@
 
 
 
-    <ul class="flex flex-col w-full mt-8 items-start" x-show="show">
+    <ul class="flex flex-col w-full mt-8 items-start" x-show.transition="show"
         @auth
             <li class="py-1 mx-2 bg-primary-500 rounded-sm text-center">
                 <form method="POST" action="{{route('logout')}}">
