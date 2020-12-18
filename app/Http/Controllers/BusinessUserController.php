@@ -13,7 +13,7 @@ class BusinessUserController extends Controller
     public function index()
     {
         return view('business-user', [
-            'PostedJobs' => BusinessUser::all(),
+            'jobs' => auth()->user()->userable->jobs,
         ]);
     }
 
@@ -38,7 +38,7 @@ class BusinessUserController extends Controller
 
         return redirect("/" . app()->getLocale())->with([
             'notice' => __('users/default-user.operation_done'),
-            'class' => 'text-green-500 text-2xlre']
+            'class' => 'text-green-500 text-2xl ']
         );
     }
 }
