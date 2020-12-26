@@ -1,7 +1,7 @@
 <section class="w-full flex relative" x-data="{show: false}">
     <aside
         x-show.transition="show"
-        class="bg-white sm:bg-transparent absolute md:relative text-gray-700 text-md w-full  sm:w-auto md:w-3/12 lg:w-2/12 xl:w-2/12  rounded-md md:mx-4">
+        class="bg-white sm:bg-transparent absolute md:hidden text-gray-700 text-md w-full  sm:w-auto md:w-3/12 lg:w-2/12 xl:w-2/12  rounded-md md:mx-4">
         <header class="flex justify-end p-2 w-full md:hidden">
             <button @click={show=!show}
                     class="focus:outline-none transition duration-300 hover:text-gray-500 focus:text-black fill-current font-3xl font-bold">
@@ -125,7 +125,12 @@
                 @auth
                     @can('favorite-jobs')
                         <aside class="flex text-base items-center justify-center text-black">
-                            <livewire:apply-to-job :viewedJob="$viewedJob" :user="auth()->user()->userable"/>
+                            @if($viewedJob->closed)
+                                <h1>this job is closed</h1>
+                            @else
+                                <livewire:apply-to-job :viewedJob="$viewedJob" :user="auth()->user()->userable"/>
+                            @endif
+
 
                             <button class="mx-2 text-primary font-weight-bold">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"

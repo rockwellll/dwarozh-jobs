@@ -12,9 +12,9 @@
     <div class="w-full flex flex-col items-center justify-center"  x-data="{tab:false}" >
 
         <div class="w-full md:w-11/12 xl:w-8/12 flex-col justify-center items-center">
-            @if(session()->has('notice'))
+            @if(session()->has('success'))
                 <h1 class="text-center {{session('class')}}">
-                    {{session('notice')}}
+                    {{session('success')}}
                 </h1>
             @endif
 

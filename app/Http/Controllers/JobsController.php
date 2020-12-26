@@ -26,7 +26,7 @@ class JobsController extends Controller
             });
 
         $result = $query->paginate(25)->withQueryString();
-        $viewedJob = empty($request->query('j')) ?  $result[0]: Job::find($request->query('j'));
+        $viewedJob = empty($request->query('j')) ? $result[0] : Job::find($request->query('j'));
 
         return view('jobs.index', [
             'jobs' => $result,
@@ -38,7 +38,8 @@ class JobsController extends Controller
     public function create()
     {
         return view('jobs.new', [
-            'categories' => JobType::all()
+            'categories' => JobType::all(),
+            'prevUrl' => url()->previous()
         ]);
     }
 
@@ -61,8 +62,19 @@ class JobsController extends Controller
             'location' => $data['location']
         ]));
 
-        return redirect()
-            ->route('home', ['locale' => app()->getLocale()])
-            ->with('notice', __('jobs/new.job_posted'));
+        // it ends with /en or /ku
+        // or /en/business or /ku/business
+//
+//        if ($request->query('prevUrl'))
+
+        return redirect($request->input('prevUrl'))
+            ->with('success', __('jobs/new.job_posted'));
+    }
+
+    public function destroy(Job $job)
+    {
+        $job->delete();
+
+        return back()->with('success', __('users/default-user.operation_done'));
     }
 }

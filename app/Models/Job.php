@@ -36,4 +36,8 @@ class Job extends Model
     public static function whereTitleIncludes(string $title) {
         return self::where('title', 'like', "%" . $title . "%");
     }
+
+    public function getClosedAttribute() {
+        return $this->is_closed == 1 ;
+    }
 }

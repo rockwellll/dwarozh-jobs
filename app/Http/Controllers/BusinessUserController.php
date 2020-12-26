@@ -10,10 +10,20 @@ use Illuminate\Support\Facades\Storage;
 
 class BusinessUserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $user = auth()->user()->userable;
+
+        if (sizeof($user->jobs) == 0) {
+            $viewedJob= null;
+        } else {
+             $viewedJob = $request->input('j') ? $user->jobs()->find($request->query('j')) : $user->jobs[0];
+        }
+
+
         return view('business-user', [
-            'jobs' => auth()->user()->userable->jobs,
+            'jobs' => $user->jobs,
+            'viewedJob' => $viewedJob
         ]);
     }
 

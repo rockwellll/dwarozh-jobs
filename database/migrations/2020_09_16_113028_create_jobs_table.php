@@ -22,6 +22,7 @@ class CreateJobsTable extends Migration
             $table->text('content');
             $table->date('deadline');
             $table->timestamps();
+            $table->boolean("is_closed")->default(false);
 
 
             $table->foreign('business_user_id')

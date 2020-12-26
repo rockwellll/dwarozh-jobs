@@ -15,13 +15,13 @@
         <main class="w-full flex justify-center my-3">
             @if(session('notice'))
                 <h1>{{session('notice')}}</h1>
-                @endif
+            @endif
 
 
             <form
                 class="w-full md:w-4/5 lg:w-2/3 text-accent text-sm md:text-base bg-white rounded-md p-1 md:p-10 shadow-lg"
                 action="{{route('jobs.store', ['locale' => app()->getLocale()])}}" method="POST">
-
+                <input type="hidden" value="{{$prevUrl}}" name="prevUrl">
                 @csrf
                 <header class="my-2">
                     <h1 class="text-xl md:text-2xl text-primary">
