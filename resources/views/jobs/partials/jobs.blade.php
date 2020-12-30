@@ -1,4 +1,4 @@
-<section class="w-full flex relative" x-data="{show: false}">
+<section class="w-full flex relative justify-center" x-data="{show: false}">
     <aside
         x-show.transition="show"
         class="bg-white sm:bg-transparent absolute md:hidden text-gray-700 text-md w-full  sm:w-auto md:w-3/12 lg:w-2/12 xl:w-2/12  rounded-md md:mx-4">
@@ -60,8 +60,8 @@
 
 
     <aside
-        class="text-gray-700 text-md hidden md:flex w-auto sm:w-auto md:w-3/12 lg:w-3/12">
-        <ul>
+        class="text-gray-700 text-md hidden md:flex w-auto sm:w-auto md:w-3/12 lg:w-2/12 mx-5">
+        <ul class="w-full">
             @foreach($jobs as $job)
                 <li onclick="document.getElementById('link-{{$job->id}}').click()"
                     class="my-1 cursor-pointer w-full border border-transparent @if($viewedJob->id == $job->id) border border-primary @endif my-1 w-full bg-white p-2 rounded-md @if(!$loop->first) my-3 @endif">

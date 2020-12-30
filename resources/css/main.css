@@ -220,3 +220,12 @@ main.job-content ol {
 select:focus {
     @apply border-primary
 }
+
+
+.text--gray {
+    color: #3E4F58;
+}
+
+.text--darker {
+    color: #283C46;
+}

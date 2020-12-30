@@ -24,13 +24,11 @@
             <div class="w-full">
                 {{$jobs->links()}}
             </div>
-            <section>
                 @if(is_null($viewedJob))
                     @include("jobs.partials.no-jobs")
                 @else
                     @include("jobs.partials.jobs")
                 @endif
-            </section>
         </div>
     </div>
     </div>

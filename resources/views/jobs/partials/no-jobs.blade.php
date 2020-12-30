@@ -1,5 +1,5 @@
 <main class="w-full bg-white rounded-md md:w-8/12 p-3 flex flex-col items-center shadow">
-    <h1 class="text-3xl">
+    <h1 class="text-3xl font-medium text--darker mb-2">
         {{__('jobs/index.no_jobs_posted_yet')}}
     </h1>
 

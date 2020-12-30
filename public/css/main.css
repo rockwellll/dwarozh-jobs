@@ -23059,6 +23059,14 @@ select:focus {
   border-color: #159195
 }
 
+.text--gray {
+  color: #3E4F58;
+}
+
+.text--darker {
+  color: #283C46;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

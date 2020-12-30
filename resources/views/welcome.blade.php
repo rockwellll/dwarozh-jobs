@@ -9,6 +9,7 @@
 @endsection
 
 @section("content")
+    <section class="w-full" x-data="{show: false}">
     <div class="w-full flex flex-col items-center justify-center"  x-data="{tab:false}" >
 
         <div class="w-full md:w-11/12 xl:w-8/12 flex-col justify-center items-center">
@@ -92,11 +93,11 @@
                 @endauth
 
                     @if(auth()->guest())
-                        <div class="flex flex-row items-center">
-                  <span>
-                    {{__('home-page.looking for people')}}
-                  </span>
-                            <a class="link padded-underline mx-0 mt-2 sm:mx-0 md:mx-2: md:mt-0  lg:mx-2"
+                        <div class="flex justify-center">
+                          <span>
+                            {{__('home-page.looking for people')}}
+                          </span>
+                            <a class="link padded-underline mx-2"
                                href="{{ route('jobs.create', ['locale' => app()->getLocale()]) }}">
                                 {{__('home-page.Publish a job')}}
                             </a>
@@ -121,5 +122,6 @@
             </div>
         </div>
     </div>
+    </section>
 
 @endsection

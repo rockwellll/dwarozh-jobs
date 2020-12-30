@@ -6,6 +6,10 @@ nav.main {
     direction: ltr;
 }
 
+section.mobile--nav {
+    direction: rtl;
+}
+
 .modal {
     direction: ltr;
 }

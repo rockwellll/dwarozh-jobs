@@ -20,6 +20,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
+    <meta name="google-site-verification" content="zLZ_SbhzCsUErcES5IeDLhq525DC69n136TFHOpFS4g" />
 
 <!-- Fonts -->
 

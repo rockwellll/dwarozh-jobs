@@ -1,5 +1,5 @@
-<section class="w-full flex justify-between hidden md:flex">
-    <h1>
+<section class="w-full flex justify-between hidden md:flex section.web--nav">
+    <h1 class="font-medium text-xl">
         <a href="/">Dwarozh Jobs</a>
     </h1>
     <ul class="flex">
