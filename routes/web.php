@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/sitemap', function () {
+    return response()->view('sitemap')
+        ->header('Content-Type', 'xml');
+});
+
 Route::prefix('/{locale}/')->middleware('language')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
 });
