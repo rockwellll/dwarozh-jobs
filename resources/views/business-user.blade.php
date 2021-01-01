@@ -17,18 +17,19 @@
     @endif
 
 
-    <p class="text-left text-gray-700 font-bold text-3xl">Welcome back Business User </p>
-    <div class="flex justify-between mx-5">
-        <p class=" text-gray-700 text-xl ">Here Are the jobs you posted. </p>
+    <div class=" text-gray-700 font-bold text-3xl">Welcome back Business User </div>
+    <div class="flex p-1  mx-5">
 
-        <a href="{{route('jobs.create', ['locale' => app()->getLocale()])}}"
-           class="mx-2 text-sm px-3 py-2 primary-button focus:outline-none focus:shadow-outline">
-            Create Opportunity
-        </a>
+        <p class=" text-gray-700 text-sm md:text-xl ">Here Are the jobs you posted. </p>
+
+           <a href="{{route('jobs.create', ['locale' => app()->getLocale()])}}"
+               class="mx-2 text-center text-xs md:text-sm px-3 py-2 primary-button focus:outline-none focus:shadow-outline">
+              Create Opportunity
+           </a>
 
 
         <a href="{{route('users.business.edit', ['locale' => app()->getLocale()])}}"
-           class="mx-2 text-sm px-3 py-2 bg-yellow-800 hover:bg-yellow-900 rounded-md text-white focus:outline-none focus:shadow-outline">
+           class="mx-2 text-center text-xs md:text-sm px-3 py-2 bg-yellow-800 hover:bg-yellow-900 rounded-md text-white focus:outline-none focus:shadow-outline">
             Edit Account
         </a>
     </div>
@@ -91,16 +92,18 @@
             @else
                 <div class="text-gray-700  bg-white w-full sm:w-full md:w-9/12 lg:w-7/12 xl:w-8/12 rounded p-4 ">
                     <header class="flex   justify-between">
-                        <div class="text-4xl text-gray-700 font-bold font font-serif text-center ">
-                            <h1 class="text-2xl">
+                        <div class=" text-gray-700 font-bold font font-serif  ">
+                            <h1 class=" text-center text-xl md:text-2xl  ">
                                 {{__('jobs/index.job_title')}} {{$viewedJob->title}}
                             </h1>
                         </div>
 
                         <aside class="flex text-base">
-                            <button class="mx-2 px-3 py-2 primary-button focus:outline-none focus:shadow-outline p-1">
-                                Edit
-                            </button>
+                            <form action="">
+                                <button class="mx-2 px-3 py-2  text-xs md:text-sm rounded-md primary-button  focus:outline-none focus:shadow-outline p-1">
+                                   Edit
+                                </button>
+                            </form>
                            @if($viewedJob->closed)
                                 <h1>this job is closed</h1>
 
@@ -109,7 +112,7 @@
                                     @method('put')
                                     @csrf
                                     <button
-                                        class="mx-2 px-3 py-2 text-white rounded-md mt-2  bg-pink-800 focus:outline-none focus:shadow-outline p-1">
+                                        class="mx-2 px-3 py-2  text-xs md:text-sm text-white rounded-md  bg-yellow-700 focus:outline-none focus:shadow-outline p-1">
                                         Close
                                     </button>
                                 </form>
@@ -119,7 +122,7 @@
                                 @method('delete')
                                 @csrf
                                 <button
-                                    class="mx-2 px-3 py-2 text-white rounded-md mt-2  bg-pink-800 focus:outline-none focus:shadow-outline p-1">
+                                    class="mx-2 px-3 py-2   text-xs md:text-sm text-white rounded-md   bg-pink-800 focus:outline-none focus:shadow-outline p-1">
                                     Delete
                                 </button>
                             </form>
